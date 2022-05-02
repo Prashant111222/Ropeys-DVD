@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AssistantMaster.Master" AutoEventWireup="true" CodeBehind="Member.aspx.cs" Inherits="RopeysDVD.Member1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Member.aspx.cs" Inherits="RopeysDVD.Member1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="card col-md-12">
         <div class="card-body">
@@ -33,8 +33,8 @@
                 <br />
             <div class="col d-flex justify-content-center">
                 <div class="col-md-4">
-                    <label for="exampleInputPassword1" class="form-label">Member DOB</label>
-                    <asp:Calendar ID="dob" CssClass="input-group date form-control" runat="server"></asp:Calendar>
+                    <label for="exampleInputPassword1" class="form-label">Member Date of Birth</label>
+                    <asp:TextBox ID="datePicker" class="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
                 <br />

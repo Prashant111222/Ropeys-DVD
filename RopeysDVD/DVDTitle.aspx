@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AssistantMaster.Master" AutoEventWireup="true" CodeBehind="DVDTitle.aspx.cs" Inherits="RopeysDVD.DVDTitle1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DVDTitle.aspx.cs" Inherits="RopeysDVD.DVDTitle1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="card col-md-12">
         <div class="card-body">
@@ -34,7 +34,7 @@
             <div class="col d-flex justify-content-center">
                 <div class="col-md-4">
                     <label for="exampleInputPassword1" class="form-label">Date Released</label>
-                    <asp:Calendar ID="dateReleased" CssClass="form-control" runat="server"></asp:Calendar>
+                    <asp:TextBox ID="datePicker" class="form-control" runat="server"></asp:TextBox>
                 </div>
             </div>
                 <br />

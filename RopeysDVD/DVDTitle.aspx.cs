@@ -63,7 +63,7 @@ namespace RopeysDVD
             try
             {
                 DVDTitle dvd = new DVDTitle();
-                dvd.AddDVDTitle(dvdCategory.SelectedValue, studio.SelectedValue, producer.SelectedValue, dvdTitle.Text, dateReleased.SelectedDate.ToString(), standardCharge.Text, penaltyCharge.Text);
+                dvd.AddDVDTitle(dvdCategory.SelectedValue, studio.SelectedValue, producer.SelectedValue, dvdTitle.Text, datePicker.Text.ToString(), standardCharge.Text, penaltyCharge.Text);
                 Result.Text = "DVD Inserted !!";
                 ViewDVDs();
                 Clear_Fields();
@@ -83,7 +83,7 @@ namespace RopeysDVD
             dvdTitle.Text = "";
             penaltyCharge.Text = "";
             standardCharge.Text = "";
-            dateReleased.SelectedDate = System.DateTime.Today;
+            datePicker.Text = System.DateTime.Today.ToString();
         }
 
         protected void Button_Clear_Click(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace RopeysDVD
             dvdTitle.Text = dt.Rows[0]["DVDTitle"].ToString();
             standardCharge.Text = dt.Rows[0]["StandardCharge"].ToString();
             penaltyCharge.Text = dt.Rows[0]["PenaltyCharge"].ToString();
-            dateReleased.SelectedDate = DateTime.Parse(dt.Rows[0]["DateReleased"].ToString());
+            datePicker.Text = dt.Rows[0]["DateReleased"].ToString();
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace RopeysDVD
             try
             {
                 DVDTitle dvd = new DVDTitle();
-                dvd.UpdateDVDTitle(dvdNumber.Text, dvdCategory.Text, studio.Text, producer.Text, dvdTitle.Text, dateReleased.SelectedDate.ToString(), standardCharge.Text, penaltyCharge.Text);
+                dvd.UpdateDVDTitle(dvdNumber.Text, dvdCategory.Text, studio.Text, producer.Text, dvdTitle.Text, datePicker.Text.ToString(), standardCharge.Text, penaltyCharge.Text);
                 Result.Text = "DVD Updated!!";
                 ViewDVDs();
                 Clear_Fields();

@@ -60,13 +60,13 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.TextBox dvdTitle;
 
         /// <summary>
-        /// dateReleased control.
+        /// datePicker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar dateReleased;
+        protected global::System.Web.UI.WebControls.TextBox datePicker;
 
         /// <summary>
         /// standardCharge control.

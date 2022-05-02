@@ -47,7 +47,7 @@ namespace RopeysDVD
             try
             {
                 Member member = new Member();
-                member.AddMember(membershipCategory.SelectedValue, lastName.Text, firstName.Text, address.Text, dob.SelectedDate.ToString());
+                member.AddMember(membershipCategory.SelectedValue, lastName.Text, firstName.Text, address.Text,  datePicker.Text);
                 Result.Text = "Member Inserted !!";
                 ViewMembers();
                 Clear_Fields();
@@ -65,7 +65,7 @@ namespace RopeysDVD
             lastName.Text = "";
             firstName.Text = "";
             address.Text = "";
-            dob.SelectedDate = System.DateTime.Today;
+            datePicker.Text = System.DateTime.Today.ToString();
         }
 
         protected void Button_Clear_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace RopeysDVD
             lastName.Text = dt.Rows[0]["MemberLastName"].ToString();
             firstName.Text = dt.Rows[0]["MemberFirstName"].ToString();
             address.Text = dt.Rows[0]["MemberAddress"].ToString();
-            dob.SelectedDate = DateTime.Parse(dt.Rows[0]["MemberDateOfBirth"].ToString());
+            datePicker.Text = dt.Rows[0]["MemberDateOfBirth"].ToString();
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace RopeysDVD
             try
             {
                 Member member = new Member();
-                member.UpdateMember(memberNumber.Text, membershipCategory.Text, lastName.Text, firstName.Text, address.Text, dob.SelectedDate.ToString());
+                member.UpdateMember(memberNumber.Text, membershipCategory.Text, lastName.Text, firstName.Text, address.Text, datePicker.Text);
                 Result.Text = "Member Updated!!";
                 ViewMembers();
                 Clear_Fields();

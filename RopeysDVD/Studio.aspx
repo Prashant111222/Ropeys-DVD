@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Ropeys DVD | Studio" Language="C#" MasterPageFile="~/AssistantMaster.Master" AutoEventWireup="true" CodeBehind="Studio.aspx.cs" Inherits="RopeysDVD.Studio1" %>
+﻿<%@ Page Title="Ropeys DVD | Studio" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Studio.aspx.cs" Inherits="RopeysDVD.Studio1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="card col-md-12">
         <div class="card-body">

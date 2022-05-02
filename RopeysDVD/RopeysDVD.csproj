@@ -69,21 +69,12 @@
   <ItemGroup>
     <Content Include="Actor.aspx" />
     <Content Include="AssistantDashboard.aspx" />
+    <Content Include="css\Forbidden.css" />
+    <Content Include="css\Style.css" />
     <Content Include="DVDCategory.aspx" />
     <Content Include="DVDCopy.aspx" />
     <Content Include="DVDTitle.aspx" />
-    <Content Include="js\checker.js" />
-    <Content Include="js\defaults.js" />
-    <Content Include="js\emiters.js" />
-    <Content Include="js\events.js" />
-    <Content Include="js\handlers.js" />
-    <Content Include="js\instance.js" />
-    <Content Include="js\listeners.js" />
-    <Content Include="js\mc-calendar.js" />
-    <Content Include="js\render.js" />
-    <Content Include="js\template.js" />
-    <Content Include="js\utils.js" />
-    <Content Include="js\validators.js" />
+    <Content Include="JavaScript\JScript.js" />
     <Content Include="Loan.aspx" />
     <Content Include="LoanType.aspx" />
     <Content Include="LoginPage.aspx" />
@@ -91,6 +82,7 @@
     <Content Include="MembershipCategory.aspx" />
     <Content Include="Producer.aspx" />
     <Content Include="Studio.aspx" />
+    <Content Include="Unauthorized.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
   </ItemGroup>
@@ -103,26 +95,12 @@
       <DependentUpon>Actor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Actor.cs" />
-    <Compile Include="AdminMaster.Master.cs">
-      <DependentUpon>AdminMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminMaster.Master.designer.cs">
-      <DependentUpon>AdminMaster.Master</DependentUpon>
-    </Compile>
     <Compile Include="AssistantDashboard.aspx.cs">
       <DependentUpon>AssistantDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AssistantDashboard.aspx.designer.cs">
       <DependentUpon>AssistantDashboard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AssistantMaster.Master.cs">
-      <DependentUpon>AssistantMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AssistantMaster.Master.designer.cs">
-      <DependentUpon>AssistantMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="CastMember.cs" />
     <Compile Include="DVDCategory.aspx.cs">
@@ -198,19 +176,19 @@
     </Compile>
     <Compile Include="Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GuestMaster.Master.cs">
-      <DependentUpon>GuestMaster.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GuestMaster.Master.designer.cs">
-      <DependentUpon>GuestMaster.Master</DependentUpon>
-    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="Studio.aspx.cs">
       <DependentUpon>Studio.aspx</DependentUpon>
@@ -220,33 +198,18 @@
       <DependentUpon>Studio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Studio.cs" />
+    <Compile Include="Unauthorized.aspx.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Unauthorized.aspx.designer.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminMaster.Master" />
-    <Content Include="AssistantMaster.Master" />
     <None Include="packages.config" />
-    <Content Include="GuestMaster.Master" />
-    <Content Include="scss\main.scss" />
-    <Content Include="scss\_components.buttons.scss" />
-    <Content Include="scss\_components.calendar.scss" />
-    <Content Include="scss\_components.date.scss" />
-    <Content Include="scss\_components.display.scss" />
-    <Content Include="scss\_components.month_year_preview.scss" />
-    <Content Include="scss\_components.picker.scss" />
-    <Content Include="scss\_components.selector.scss" />
-    <Content Include="scss\_components.table.scss" />
-    <Content Include="scss\_elements.all.scss" />
-    <Content Include="scss\_generic.resets.scss" />
-    <Content Include="scss\_objects.layout.scss" />
-    <Content Include="scss\_settings.animations.scss" />
-    <Content Include="scss\_settings.breakpoints.scss" />
-    <Content Include="scss\_settings.colors.scss" />
-    <Content Include="scss\_settings.layout.scss" />
-    <Content Include="scss\_settings.typography.scss" />
-    <Content Include="scss\_tools.mixins.scss" />
-    <Content Include="scss\_tools.transitions.scss" />
-    <Content Include="scss\_utilities.display.scss" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
