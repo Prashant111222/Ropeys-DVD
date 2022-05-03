@@ -13,7 +13,32 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) ViewDVDCategory();
+            try
+            {
+                if (!IsPostBack)
+                {
+                    HttpCookie userCookie = Request.Cookies["userCookie"];
+                    if (userCookie == null)
+                    {
+                        Response.Redirect("LoginPage.aspx");
+                    }
+
+                    //cookie found
+                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                    {
+                        string usertype = userCookie.Values["userType"].ToString();
+                        if (usertype == "Staff")
+                        {
+                            Response.Redirect("Unauthorized.aspx");
+                        }
+                    }
+                    ViewDVDCategory();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('exception')</script>");
+            }
         }
 
         protected void ViewDVDCategory()

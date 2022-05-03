@@ -1,4 +1,4 @@
-﻿<%@ Page Title="DVD Category" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DVDCategory.aspx.cs" Inherits="RopeysDVD.DVDCategory1" %>
+﻿<%@ Page Title="DVD Category" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="DVDCategory.aspx.cs" Inherits="RopeysDVD.DVDCategory1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="card col-md-12">
         <div class="card-body">
@@ -12,7 +12,7 @@
             <br />
             <div class="col d-flex justify-content-center">
                 <div class="col-md-4">
-                    <label for="exampleInputEmail1" class="form-label">Age Restricted [+18]</label>
+                    <label for="exampleInputEmail1" class="form-label">Age Restricted [18+]</label>
                     <asp:DropDownList ID="ageRestriction" CssClass="form-control" runat="server">
                         <asp:ListItem Value="False">No</asp:ListItem>
                         <asp:ListItem Value="True">Yes</asp:ListItem>

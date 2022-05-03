@@ -13,17 +13,40 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                ViewMembers();
+                if (!IsPostBack)
+                {
+                    HttpCookie userCookie = Request.Cookies["userCookie"];
+                    if (userCookie == null)
+                    {
+                        Response.Redirect("LoginPage.aspx");
+                    }
 
-                //for dsiplaying membership categories in th dropdown list
-                MembershipCategory cat = new MembershipCategory();
-                membershipCategory.DataSource = cat.SelectMembershipCategory();
-                membershipCategory.DataTextField = "MembershipCategoryDescription";
-                membershipCategory.DataValueField = "MembershipCategoryNumber";
-                membershipCategory.DataBind();
-                membershipCategory.Items.Insert(0, new ListItem("-- Select Membership Category --", ""));
+                    //cookie found
+                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                    {
+                        string usertype = userCookie.Values["userType"].ToString();
+                        if (usertype == "Staff")
+                        {
+                            Response.Write("<script>alert('hyaa staff muji')</script>");
+                            Response.Redirect("Unauthorized.aspx");
+                        }
+                    }
+                    ViewMembers();
+
+                    //for dsiplaying membership categories in th dropdown list
+                    MembershipCategory cat = new MembershipCategory();
+                    membershipCategory.DataSource = cat.SelectMembershipCategory();
+                    membershipCategory.DataTextField = "MembershipCategoryDescription";
+                    membershipCategory.DataValueField = "MembershipCategoryNumber";
+                    membershipCategory.DataBind();
+                    membershipCategory.Items.Insert(0, new ListItem("-- Select Membership Category --", ""));
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('exception)</script>");
             }
         }
 

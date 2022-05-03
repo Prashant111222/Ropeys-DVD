@@ -13,33 +13,56 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                ViewLoans();
+                if (!IsPostBack)
+                {
+                    HttpCookie userCookie = Request.Cookies["userCookie"];
+                    if (userCookie == null)
+                    {
+                        Response.Redirect("LoginPage.aspx");
+                    }
 
-                //for displaying loan type in the dropdown list
-                LoanType ln = new LoanType();
-                loanType.DataSource = ln.SelectLoanType();
-                loanType.DataTextField = "LoanType";
-                loanType.DataValueField = "LoanTypeNumber";
-                loanType.DataBind();
-                loanType.Items.Insert(0, new ListItem("-- Select Loan Type --", ""));
+                    //cookie found
+                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                    {
+                        string usertype = userCookie.Values["userType"].ToString();
+                        if (usertype == "Staff")
+                        {
+                            Response.Write("<script>alert('hyaa staff muji')</script>");
+                            Response.Redirect("Unauthorized.aspx");
+                        }
+                    }
+                    ViewLoans();
 
-                //for displaying dvd copy in the dropdown list
-                DVDCopy copy = new DVDCopy();
-                copyNumber.DataSource = copy.GetDVDCopyTitle();
-                copyNumber.DataTextField = "DVDTitle";
-                copyNumber.DataValueField = "CopyNumber";
-                copyNumber.DataBind();
-                copyNumber.Items.Insert(0, new ListItem("-- Select Copy --", ""));
+                    //for displaying loan type in the dropdown list
+                    LoanType ln = new LoanType();
+                    loanType.DataSource = ln.SelectLoanType();
+                    loanType.DataTextField = "LoanType";
+                    loanType.DataValueField = "LoanTypeNumber";
+                    loanType.DataBind();
+                    loanType.Items.Insert(0, new ListItem("-- Select Loan Type --", ""));
 
-                //for displaying member in the dropdown list
-                Member mem = new Member();
-                member.DataSource = mem.SelectMember();
-                member.DataTextField = "MemberFirstName";
-                member.DataValueField = "MemberNumber";
-                member.DataBind();
-                member.Items.Insert(0, new ListItem("-- Select Member --", ""));
+                    //for displaying dvd copy in the dropdown list
+                    DVDCopy copy = new DVDCopy();
+                    copyNumber.DataSource = copy.GetDVDCopyTitle();
+                    copyNumber.DataTextField = "DVDTitle";
+                    copyNumber.DataValueField = "CopyNumber";
+                    copyNumber.DataBind();
+                    copyNumber.Items.Insert(0, new ListItem("-- Select Copy --", ""));
+
+                    //for displaying member in the dropdown list
+                    Member mem = new Member();
+                    member.DataSource = mem.SelectMember();
+                    member.DataTextField = "MemberFirstName";
+                    member.DataValueField = "MemberNumber";
+                    member.DataBind();
+                    member.Items.Insert(0, new ListItem("-- Select Member --", ""));
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('exception)</script>");
             }
         }
 

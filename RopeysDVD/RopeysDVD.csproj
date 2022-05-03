@@ -67,149 +67,149 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Actor.aspx" />
-    <Content Include="AssistantDashboard.aspx" />
+    <Content Include="Pages\Actor.aspx" />
+    <Content Include="Pages\AssistantDashboard.aspx" />
     <Content Include="css\Forbidden.css" />
     <Content Include="css\Style.css" />
-    <Content Include="DVDCategory.aspx" />
-    <Content Include="DVDCopy.aspx" />
-    <Content Include="DVDTitle.aspx" />
+    <Content Include="Pages\DVDCategory.aspx" />
+    <Content Include="Pages\DVDCopy.aspx" />
+    <Content Include="Pages\DVDTitle.aspx" />
     <Content Include="JavaScript\JScript.js" />
-    <Content Include="Loan.aspx" />
-    <Content Include="LoanType.aspx" />
-    <Content Include="LoginPage.aspx" />
-    <Content Include="Member.aspx" />
-    <Content Include="MembershipCategory.aspx" />
-    <Content Include="Producer.aspx" />
-    <Content Include="Studio.aspx" />
-    <Content Include="Unauthorized.aspx" />
+    <Content Include="Pages\Loan.aspx" />
+    <Content Include="Pages\LoanType.aspx" />
+    <Content Include="Pages\LoginPage.aspx" />
+    <Content Include="Pages\Member.aspx" />
+    <Content Include="Pages\MembershipCategory.aspx" />
+    <Content Include="Pages\Producer.aspx" />
+    <Content Include="Pages\Studio.aspx" />
+    <Content Include="Pages\Unauthorized.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Home.aspx" />
+    <Content Include="Pages\Home.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actor.aspx.cs">
+    <Compile Include="Pages\Actor.aspx.cs">
       <DependentUpon>Actor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Actor.aspx.designer.cs">
+    <Compile Include="Pages\Actor.aspx.designer.cs">
       <DependentUpon>Actor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Actor.cs" />
-    <Compile Include="AssistantDashboard.aspx.cs">
+    <Compile Include="Model\Actor.cs" />
+    <Compile Include="Pages\AssistantDashboard.aspx.cs">
       <DependentUpon>AssistantDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AssistantDashboard.aspx.designer.cs">
+    <Compile Include="Pages\AssistantDashboard.aspx.designer.cs">
       <DependentUpon>AssistantDashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CastMember.cs" />
-    <Compile Include="DVDCategory.aspx.cs">
+    <Compile Include="Model\CastMember.cs" />
+    <Compile Include="Pages\DVDCategory.aspx.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DVDCategory.aspx.designer.cs">
+    <Compile Include="Pages\DVDCategory.aspx.designer.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DVDCategory.cs" />
-    <Compile Include="DVDCopy.aspx.cs">
+    <Compile Include="Model\DVDCategory.cs" />
+    <Compile Include="Pages\DVDCopy.aspx.cs">
       <DependentUpon>DVDCopy.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DVDCopy.aspx.designer.cs">
+    <Compile Include="Pages\DVDCopy.aspx.designer.cs">
       <DependentUpon>DVDCopy.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DVDCopy.cs" />
-    <Compile Include="DVDTitle.aspx.cs">
+    <Compile Include="Model\DVDCopy.cs" />
+    <Compile Include="Pages\DVDTitle.aspx.cs">
       <DependentUpon>DVDTitle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DVDTitle.aspx.designer.cs">
+    <Compile Include="Pages\DVDTitle.aspx.designer.cs">
       <DependentUpon>DVDTitle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DVDTitle.cs" />
-    <Compile Include="GlobalConnection.cs" />
-    <Compile Include="Loan.aspx.cs">
+    <Compile Include="Model\DVDTitle.cs" />
+    <Compile Include="Model\GlobalConnection.cs" />
+    <Compile Include="Pages\Loan.aspx.cs">
       <DependentUpon>Loan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Loan.aspx.designer.cs">
+    <Compile Include="Pages\Loan.aspx.designer.cs">
       <DependentUpon>Loan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Loan.cs" />
-    <Compile Include="LoanType.aspx.cs">
+    <Compile Include="Model\Loan.cs" />
+    <Compile Include="Pages\LoanType.aspx.cs">
       <DependentUpon>LoanType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoanType.aspx.designer.cs">
+    <Compile Include="Pages\LoanType.aspx.designer.cs">
       <DependentUpon>LoanType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoanType.cs" />
-    <Compile Include="LoginPage.aspx.cs">
+    <Compile Include="Model\LoanType.cs" />
+    <Compile Include="Pages\LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginPage.aspx.designer.cs">
+    <Compile Include="Pages\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Member.aspx.cs">
+    <Compile Include="Pages\Member.aspx.cs">
       <DependentUpon>Member.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Member.aspx.designer.cs">
+    <Compile Include="Pages\Member.aspx.designer.cs">
       <DependentUpon>Member.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Member.cs" />
-    <Compile Include="MembershipCategory.aspx.cs">
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Pages\MembershipCategory.aspx.cs">
       <DependentUpon>MembershipCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MembershipCategory.aspx.designer.cs">
+    <Compile Include="Pages\MembershipCategory.aspx.designer.cs">
       <DependentUpon>MembershipCategory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MembershipCategory.cs" />
-    <Compile Include="Producer.aspx.cs">
+    <Compile Include="Model\MembershipCategory.cs" />
+    <Compile Include="Pages\Producer.aspx.cs">
       <DependentUpon>Producer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Producer.aspx.designer.cs">
+    <Compile Include="Pages\Producer.aspx.designer.cs">
       <DependentUpon>Producer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Producer.cs" />
+    <Compile Include="Model\Producer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="Pages\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
+    <Compile Include="Pages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="Pages\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Studio.aspx.cs">
+    <Compile Include="Pages\Studio.aspx.cs">
       <DependentUpon>Studio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Studio.aspx.designer.cs">
+    <Compile Include="Pages\Studio.aspx.designer.cs">
       <DependentUpon>Studio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Studio.cs" />
-    <Compile Include="Unauthorized.aspx.cs">
+    <Compile Include="Model\Studio.cs" />
+    <Compile Include="Pages\Unauthorized.aspx.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Unauthorized.aspx.designer.cs">
+    <Compile Include="Pages\Unauthorized.aspx.designer.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Model\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Site.Master" />
+    <Content Include="Pages\Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -217,6 +217,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -15,6 +15,7 @@ namespace RopeysDVD
         {
             try
             {
+                //checking if cookie exists
                 HttpCookie userCookie = Request.Cookies["userCookie"];
                 if (userCookie == null)
                 {
@@ -22,6 +23,7 @@ namespace RopeysDVD
                 }
                 else if (!string.IsNullOrEmpty(userCookie.Values["username"]))
                 {
+                    //if exists redirect to homepage
                     Response.Redirect("Home.aspx");
                 }
             }
@@ -40,18 +42,27 @@ namespace RopeysDVD
             SqlDataAdapter sda = new SqlDataAdapter(sql, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            if (dt.Rows.Count > 0)
+            if (dt.Rows.Count == 1)
             {
+                string userNumber = "";
+                foreach (DataRow row in dt.Rows)
+                {
+                    userNumber = row["UserNumber"].ToString();
+                }
+
+                //creating new cookie for each login
                 HttpCookie userCookie = new HttpCookie("userCookie");
+                userCookie.Values.Add("userNumber", userNumber);
                 userCookie.Values.Add("username", tfUserName.Text);
                 userCookie.Values.Add("password", tfPassword.Text);
                 userCookie.Values.Add("userType", ddUserType.SelectedItem.ToString());
 
-                userCookie.Expires = DateTime.Now.AddMinutes(1);
+                //cookie expiration
+                userCookie.Expires = DateTime.Now.AddMonths(1);
+
                 Response.Cookies.Add(userCookie);
 
-
-                Response.Write("<script>alert('Login successful')</script>");
+                //checking user type 0:admin && 1:staff
                 if (ddUserType.SelectedIndex == 0)
                 {
                     Response.Redirect("Home.aspx");

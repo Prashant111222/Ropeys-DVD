@@ -13,7 +13,34 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) ViewProducers();
+            if (!IsPostBack) 
+            try
+            {
+                if (!IsPostBack)
+                {
+                    HttpCookie userCookie = Request.Cookies["userCookie"];
+                    if (userCookie == null)
+                    {
+                        Response.Redirect("LoginPage.aspx");
+                    }
+
+                    //cookie found
+                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                    {
+                        string usertype = userCookie.Values["userType"].ToString();
+                        if (usertype == "Staff")
+                        {
+                            Response.Write("<script>alert('hyaa staff muji')</script>");
+                            Response.Redirect("Unauthorized.aspx");
+                        }
+                    }
+                    ViewProducers();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('exception)</script>");
+            }
         }
 
         protected void ViewProducers()

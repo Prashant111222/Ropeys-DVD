@@ -10,7 +10,6 @@ namespace RopeysDVD
     public class Loan
     {
         readonly GlobalConnection gc = new GlobalConnection();
-
         public DataTable SelectLoan()
         {
             string sql = "SELECT * FROM Loan";

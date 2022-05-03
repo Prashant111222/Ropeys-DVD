@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Unauthorized Access</title>
-    <link href="css/Forbidden.css" rel="stylesheet" />
+    <link href="../css/Forbidden.css" rel="stylesheet" />
 </head>
 <body>
     <div class="scene">

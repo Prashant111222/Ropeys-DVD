@@ -14,15 +14,38 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                ViewCopies();
-                DVDTitle title = new DVDTitle();
-                dvdNumber.DataSource = title.SelectDVDTitle();
-                dvdNumber.DataTextField = "DVDTitle";
-                dvdNumber.DataValueField = "DVDNumber";
-                dvdNumber.DataBind();
-                dvdNumber.Items.Insert(0, new ListItem("-- Select DVD --", ""));
+                if (!IsPostBack)
+                {
+                    HttpCookie userCookie = Request.Cookies["userCookie"];
+                    if (userCookie == null)
+                    {
+                        Response.Redirect("LoginPage.aspx");
+                    }
+
+                    //cookie found
+                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                    {
+                        string usertype = userCookie.Values["userType"].ToString();
+                        if (usertype == "Staff")
+                        {
+                            Response.Write("<script>alert('hyaa staff muji')</script>");
+                            Response.Redirect("Unauthorized.aspx");
+                        }
+                    }
+                    ViewCopies();
+                    DVDTitle title = new DVDTitle();
+                    dvdNumber.DataSource = title.SelectDVDTitle();
+                    dvdNumber.DataTextField = "DVDTitle";
+                    dvdNumber.DataValueField = "DVDNumber";
+                    dvdNumber.DataBind();
+                    dvdNumber.Items.Insert(0, new ListItem("-- Select DVD --", ""));
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('exception)</script>");
             }
         }
 
@@ -46,7 +69,7 @@ namespace RopeysDVD
             try
             {
                 DVDCopy copy = new DVDCopy();
-                copy.AddDVDCopy(dvdNumber.SelectedValue, datePurchased.SelectedDate.ToString());
+                copy.AddDVDCopy(dvdNumber.SelectedValue, datePicker.Text);
                 Result.Text = "DVD COpy Inserted !!";
                 ViewCopies();
                 Clear_Fields();
@@ -61,7 +84,7 @@ namespace RopeysDVD
         {
             copyNumber.Text = "";
             dvdNumber.SelectedIndex = 0;
-            datePurchased.SelectedDate = System.DateTime.Today;
+            datePicker.Text = System.DateTime.Today.ToString();
         }
 
         protected void Button_Clear_Click(object sender, EventArgs e)
@@ -90,7 +113,7 @@ namespace RopeysDVD
 
             copyNumber.Text = dt.Rows[0]["CopyNumber"].ToString();
             dvdNumber.SelectedValue = dt.Rows[0]["DVDNumber"].ToString();
-            datePurchased.SelectedDate = DateTime.Parse(dt.Rows[0]["DatePurchased"].ToString());
+            datePicker.Text = dt.Rows[0]["DatePurchased"].ToString();
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)
@@ -114,7 +137,7 @@ namespace RopeysDVD
             try
             {
                 DVDCopy copy = new DVDCopy();
-                copy.UpdateDVDCopy(copyNumber.Text, dvdNumber.SelectedValue, datePurchased.SelectedDate.ToString());
+                copy.UpdateDVDCopy(copyNumber.Text, dvdNumber.SelectedValue, datePicker.Text);
                 Result.Text = "DVD Copy Updated!!";
                 ViewCopies();
                 Clear_Fields();

@@ -13,33 +13,56 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                ViewDVDs();
+                if (!IsPostBack)
+                {
+                    HttpCookie userCookie = Request.Cookies["userCookie"];
+                    if (userCookie == null)
+                    {
+                        Response.Redirect("LoginPage.aspx");
+                    }
 
-                //for displaying DVD categories in the dropdown list
-                DVDCategory cat = new DVDCategory();
-                dvdCategory.DataSource = cat.SelectDVDCategory();
-                dvdCategory.DataTextField = "CategoryDescription";
-                dvdCategory.DataValueField = "CategoryNumber";
-                dvdCategory.DataBind();
-                dvdCategory.Items.Insert(0, new ListItem("-- Select DVD Category --", ""));
+                    //cookie found
+                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                    {
+                        string usertype = userCookie.Values["userType"].ToString();
+                        if (usertype == "Staff")
+                        {
+                            Response.Write("<script>alert('hyaa staff muji')</script>");
+                            Response.Redirect("Unauthorized.aspx");
+                        }
+                    }
+                    ViewDVDs();
 
-                //for displaying producers in the dropdown list
-                Producer prod = new Producer();
-                producer.DataSource = prod.SelectProducer();
-                producer.DataTextField = "ProducerName";
-                producer.DataValueField = "ProducerNumber";
-                producer.DataBind();
-                producer.Items.Insert(0, new ListItem("-- Select Producer --", ""));
+                    //for displaying DVD categories in the dropdown list
+                    DVDCategory cat = new DVDCategory();
+                    dvdCategory.DataSource = cat.SelectDVDCategory();
+                    dvdCategory.DataTextField = "CategoryDescription";
+                    dvdCategory.DataValueField = "CategoryNumber";
+                    dvdCategory.DataBind();
+                    dvdCategory.Items.Insert(0, new ListItem("-- Select DVD Category --", ""));
 
-                //for displaying studios in the dropdown list
-                Studio st = new Studio();
-                studio.DataSource = st.SelectStudio();
-                studio.DataTextField = "StudioName";
-                studio.DataValueField = "StudioNumber";
-                studio.DataBind();
-                studio.Items.Insert(0, new ListItem("-- Select Studio --", ""));
+                    //for displaying producers in the dropdown list
+                    Producer prod = new Producer();
+                    producer.DataSource = prod.SelectProducer();
+                    producer.DataTextField = "ProducerName";
+                    producer.DataValueField = "ProducerNumber";
+                    producer.DataBind();
+                    producer.Items.Insert(0, new ListItem("-- Select Producer --", ""));
+
+                    //for displaying studios in the dropdown list
+                    Studio st = new Studio();
+                    studio.DataSource = st.SelectStudio();
+                    studio.DataTextField = "StudioName";
+                    studio.DataValueField = "StudioNumber";
+                    studio.DataBind();
+                    studio.Items.Insert(0, new ListItem("-- Select Studio --", ""));
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('exception)</script>");
             }
         }
 

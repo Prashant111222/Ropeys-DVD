@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="RopeysDVD.LoginPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="RopeysDVD.LoginPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
-    <div class="shadow-lg w-100 p-3 mb-5 bg-body card rounded mt-lg-5">
+    <div>
         <div class="col d-flex justify-content-center">
         <h1 class="w-100 mt-3 text-xxl-center"><b>User Login</b><br/></h1>
     </div>

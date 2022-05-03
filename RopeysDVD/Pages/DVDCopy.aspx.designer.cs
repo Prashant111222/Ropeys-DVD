@@ -33,13 +33,13 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.DropDownList dvdNumber;
 
         /// <summary>
-        /// datePurchased control.
+        /// datePicker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar datePurchased;
+        protected global::System.Web.UI.WebControls.TextBox datePicker;
 
         /// <summary>
         /// Result control.
