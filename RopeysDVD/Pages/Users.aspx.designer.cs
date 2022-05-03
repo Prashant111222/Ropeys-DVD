@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RopeysDVD
+namespace RopeysDVD.Pages
 {
 
 
-    public partial class User1
+    public partial class Users
     {
 
         /// <summary>

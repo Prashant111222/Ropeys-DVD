@@ -7,12 +7,12 @@ using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace RopeysDVD
+namespace RopeysDVD.Pages
 {
-    public partial class User1 : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class Users : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
             try
             {
                 if (!IsPostBack)
@@ -40,7 +40,7 @@ namespace RopeysDVD
             {
                 Response.Write("<script>alert('exception)</script>");
             }
-        }
+		}
 
         protected void ViewUsers()
         {

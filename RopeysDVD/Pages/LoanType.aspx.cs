@@ -27,11 +27,6 @@ namespace RopeysDVD
                     if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
                     {
                         string usertype = userCookie.Values["userType"].ToString();
-                        if (usertype == "Staff")
-                        {
-                            Response.Write("<script>alert('Staff Staff')</script>");
-                            Response.Redirect("Unauthorized.aspx");
-                        }
                     }
                     ViewLoanTypes();
                 }
