@@ -83,34 +83,49 @@ namespace RopeysDVD
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (producerNumber.Text != "")
             {
-                Producer producer = new Producer();
-                producer.UpdateProducer(producerNumber.Text, producerName.Text);
-                Result.Text = "Producer Updated!!";
-                ViewProducers();
-                Clear_Fields();
+                try
+                {
+                    Producer producer = new Producer();
+                    producer.UpdateProducer(producerNumber.Text, producerName.Text);
+                    Result.Text = "Producer Updated!!";
+                    ViewProducers();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Producer From the Table";
             }
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (producerNumber.Text != "")
             {
-                Producer producer = new Producer();
-                producer.DeleteProducer(producerNumber.Text);
-                Result.Text = "Producer Deleted!!";
-                ViewProducers();
-                Clear_Fields();
+                try
+                {
+                    Producer producer = new Producer();
+                    producer.DeleteProducer(producerNumber.Text);
+                    Result.Text = "Producer Deleted!!";
+                    ViewProducers();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Producer From the Table";
             }
+
         }
 
         protected void Button_Clear_Click(object sender, EventArgs e)

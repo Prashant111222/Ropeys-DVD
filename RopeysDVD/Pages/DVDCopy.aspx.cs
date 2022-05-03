@@ -61,17 +61,24 @@ namespace RopeysDVD
 
         protected void Button_Submit_Click(object sender, EventArgs e)
         {
-            try
+            if (dvdNumber.SelectedIndex != 0)
             {
-                DVDCopy copy = new DVDCopy();
-                copy.AddDVDCopy(dvdNumber.SelectedValue, datePicker.Text);
-                Result.Text = "DVD COpy Inserted !!";
-                ViewCopies();
-                Clear_Fields();
+                try
+                {
+                    DVDCopy copy = new DVDCopy();
+                    copy.AddDVDCopy(dvdNumber.SelectedValue, datePicker.Text);
+                    Result.Text = "DVD Copy Inserted !!";
+                    ViewCopies();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the DVD to Make Copy of";
             }
         }
 
@@ -113,33 +120,47 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (copyNumber.Text != "" && dvdNumber.SelectedIndex != 0)
             {
-                DVDCopy copy = new DVDCopy();
-                copy.DeleteDVDCopy(copyNumber.Text);
-                Result.Text = "DVD Copy Deleted!!";
-                ViewCopies();
-                Clear_Fields();
+                try
+                {
+                    DVDCopy copy = new DVDCopy();
+                    copy.DeleteDVDCopy(copyNumber.Text);
+                    Result.Text = "DVD Copy Deleted!!";
+                    ViewCopies();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a DVD Copy Row from the Table.";
             }
         }
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (copyNumber.Text != "" && dvdNumber.SelectedIndex != 0)
             {
-                DVDCopy copy = new DVDCopy();
-                copy.UpdateDVDCopy(copyNumber.Text, dvdNumber.SelectedValue, datePicker.Text);
-                Result.Text = "DVD Copy Updated!!";
-                ViewCopies();
-                Clear_Fields();
+                try
+                {
+                    DVDCopy copy = new DVDCopy();
+                    copy.UpdateDVDCopy(copyNumber.Text, dvdNumber.SelectedValue, datePicker.Text);
+                    Result.Text = "DVD Copy Updated!!";
+                    ViewCopies();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a DVD Copy Row from the Table.";
             }
         }
     }

@@ -64,7 +64,7 @@ namespace RopeysDVD
             {
                 DVDCategory cat = new DVDCategory();
                 cat.AddDVDCategory(categoryDescription.Text, ageRestriction.SelectedValue);
-                Result.Text = "Inserted !!";
+                Result.Text = "Category Inserted !!";
                 ViewDVDCategory();
                 Clear_Fields();
             }
@@ -84,33 +84,47 @@ namespace RopeysDVD
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (dvdCategoryNumber.Text != "")
             {
-                DVDCategory cat = new DVDCategory();
-                cat.UpdateDVDCategory(dvdCategoryNumber.Text, categoryDescription.Text, ageRestriction.Text);
-                Result.Text = "Actor Updated!!";
-                ViewDVDCategory();
-                Clear_Fields();
+                try
+                {
+                    DVDCategory cat = new DVDCategory();
+                    cat.UpdateDVDCategory(dvdCategoryNumber.Text, categoryDescription.Text, ageRestriction.Text);
+                    Result.Text = "Category Updated!!";
+                    ViewDVDCategory();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Category From the Table";
             }
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (dvdCategoryNumber.Text != "")
             {
-                DVDCategory cat = new DVDCategory();
-                cat.DeleteDVDCategory(dvdCategoryNumber.Text);
-                Result.Text = "Category Deleted!!";
-                ViewDVDCategory();
-                Clear_Fields();
+                try
+                {
+                    DVDCategory cat = new DVDCategory();
+                    cat.DeleteDVDCategory(dvdCategoryNumber.Text);
+                    Result.Text = "Category Deleted!!";
+                    ViewDVDCategory();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Category From the Table";
             }
         }
 

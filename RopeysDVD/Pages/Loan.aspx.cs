@@ -78,19 +78,51 @@ namespace RopeysDVD
 
         protected void Button_Submit_Click(object sender, EventArgs e)
         {
-            try
+            if (!IsEmpty())
             {
-                Loan ln = new Loan();
-                string dateOut = DateTime.Now.ToString();
-                string dateDue = DateTime.Now.AddDays(ln.GetLoanDuration(loanType.SelectedValue)).ToString();
-                ln.AddLoan(loanType.SelectedValue, copyNumber.SelectedValue, member.SelectedValue, dateOut, dateDue);
-                Result.Text = "Loan Added !!";
-                ViewLoans();
-                Clear_Fields();
+                DVDCopy copy = new DVDCopy();
+
+                //checking if the selected movie is age restricted
+                if (copy.IsAgeResticted(copyNumber.SelectedValue))
+                {
+                    Member mem = new Member();
+
+                    //checking the age of the user
+                    if (mem.CheckMemberAge(member.SelectedValue) < 18)
+                    {
+                        Result.Text = "Age Restricted Content!";
+                        return;
+                    }
+                }
+
+                //inserting into the loan table
+                try
+                {
+                    Loan ln = new Loan();
+
+                    //for total duration
+                    int totalDuration = ln.GetLoanDuration(loanType.SelectedValue);
+
+                    string dateOut = DateTime.Now.ToString();
+                    string dateDue = DateTime.Now.AddDays(totalDuration).ToString();
+                    ln.AddLoan(loanType.SelectedValue, copyNumber.SelectedValue, member.SelectedValue, dateOut, dateDue);
+
+                    DVDTitle dvd = new DVDTitle();
+
+                    //calculating the total price
+                    int standardCharge = dvd.StandardCharge(copyNumber.SelectedValue) * totalDuration;
+                    Result.Text = "Loan Added! Total Charge: Rs." + standardCharge;
+                    ViewLoans();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select Values From the Dropdown Lists";
             }
         }
 
@@ -143,34 +175,80 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (!IsEmpty() && loanNumber.Text != "")
             {
-                Loan ln = new Loan();
-                ln.DeleteLoan(loanNumber.Text);
-                Result.Text = "Loan Deleted!!";
-                ViewLoans();
-                Clear_Fields();
+                try
+                {
+                    Loan ln = new Loan();
+                    ln.DeleteLoan(loanNumber.Text);
+                    Result.Text = "Loan Deleted!!";
+                    ViewLoans();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Row From the Table";
             }
         }
 
         protected void Button_Return_Click(object sender, EventArgs e)
         {
-            try
+            if (!IsEmpty() && loanNumber.Text != "")
             {
-                Loan ln = new Loan();
-                string dateReturn = DateTime.Now.ToString();
-                ln.ReturnLoan(loanNumber.Text, dateReturn);
-                Result.Text = "Loan Returned !!";
-                ViewLoans();
-                Clear_Fields();
+                try
+                {
+                    Loan ln = new Loan();
+                    //checking if the loan has already been returned
+
+                    if (!ln.IsReturned(loanNumber.Text))
+                    {
+                        DVDTitle dvd = new DVDTitle();
+
+                        //getting the standard duration
+                        int standardDuration = ln.GetLoanDuration(loanType.SelectedValue);
+
+                        string dateReturn = DateTime.Now.ToString();
+                        ln.ReturnLoan(loanNumber.Text, dateReturn);
+
+                        //getting total duration after loan returned
+                        int actualDuration = ln.TotalLoanDuration(loanNumber.Text);
+                        int durationDifference = standardDuration - actualDuration;
+
+                        //calculating the standard price
+                        int standardCharge = dvd.StandardCharge(copyNumber.SelectedValue) * standardDuration;
+
+                        //for penalty charge
+                        int penaltyCharge = 0;
+
+                        //calculating the penalty chare if it exceeds the standard loan duration
+                        if (durationDifference < 0)
+                        {
+                            int penaltyRate = dvd.PenaltyCharge(copyNumber.SelectedValue);
+                            penaltyCharge = -1 * (durationDifference * penaltyRate);
+                        }
+
+                        Result.Text = "Loan Returned! Standard Charge: Rs." + standardCharge + " Penalty Charge: Rs." + penaltyCharge;
+                        ViewLoans();
+                        Clear_Fields();
+                    }
+                    else
+                    {
+                        Result.Text = "The Selected Loan has Already been Returned!";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Row From the Table";
             }
         }
     }

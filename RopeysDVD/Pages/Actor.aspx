@@ -7,7 +7,7 @@
                     <asp:TextBox ID="actorNumber" type="hidden" class="form-control" runat="server"></asp:TextBox>
                     <label for="exampleInputEmail1" class="form-label">Actor Surname</label>
                     <asp:TextBox ID="actorSurname" class="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="id" ValidationGroup="required" ControlToValidate="actorSurname" ErrorMessage="Please Enter Actor Surname!" ForeColor="Red"/>
+                    <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="actorSurname" ValidationGroup="required" ErrorMessage="Please Enter Actor Surname!" ForeColor="Red"/>
                 </div>
             </div>
                 <br />
@@ -15,6 +15,7 @@
                 <div class="col-md-4">
                     <label for="exampleInputPassword1" class="form-label">Actor First Name</label>
                     <asp:TextBox ID="actorFirstName" class="form-control" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="actorFirstName" ValidationGroup="required" ErrorMessage="Please Enter Actor First Name!" ForeColor="Red"/>
                 </div>
             </div>
                 <br />
@@ -24,11 +25,11 @@
                 <br />
                 <br />
             <div class="col d-flex justify-content-center">
-                <asp:Button ID="Button_Submit" CssClass="btn btn-primary" ValidationGroup="required" runat="server" Text="Add Actor" OnClick="Button_Submit_Click" />
+                <asp:Button ID="Button_Submit" ValidationGroup="required" CssClass="btn btn-primary" runat="server" Text="Add Actor" OnClick="Button_Submit_Click" />
                 <div class="divider"></div>
-                <asp:Button ID="Button_Update" CssClass="btn btn-primary" ValidationGroup="required" runat="server" Text="Update" OnClick="Button_Update_Click" />
+                <asp:Button ID="Button_Update" ValidationGroup="required" CssClass="btn btn-primary" runat="server" Text="Update" OnClick="Button_Update_Click" />
                 <div class="divider"></div>
-                <asp:Button ID="Button_Delete" CssClass="btn btn-danger" ValidationGroup="required" runat="server" Text="Delete" OnClick="Button_Delete_Click" />
+                <asp:Button ID="Button_Delete" ValidationGroup="required" CssClass="btn btn-danger" runat="server" Text="Delete" OnClick="Button_Delete_Click" />
                 <div class="divider"></div>
                 <asp:Button ID="Button_Clear" CssClass="btn btn-danger" runat="server" Text="Clear" OnClick="Button_Clear_Click" />
             </div>

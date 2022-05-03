@@ -62,17 +62,24 @@ namespace RopeysDVD
 
         protected void Button_Submit_Click(object sender, EventArgs e)
         {
-            try
+            if (membershipCategory.SelectedIndex != 0)
             {
-                Member member = new Member();
-                member.AddMember(membershipCategory.SelectedValue, lastName.Text, firstName.Text, address.Text, datePicker.Text);
-                Result.Text = "Member Inserted !!";
-                ViewMembers();
-                Clear_Fields();
+                try
+                {
+                    Member member = new Member();
+                    member.AddMember(membershipCategory.SelectedValue, lastName.Text, firstName.Text, address.Text, datePicker.Text);
+                    Result.Text = "Member Inserted !!";
+                    ViewMembers();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Membership Category";
             }
         }
 
@@ -120,33 +127,48 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (membershipCategory.SelectedIndex != 0 && memberNumber.Text != "")
             {
-                Member member = new Member();
-                member.DeleteMember(memberNumber.Text);
-                Result.Text = "Member Deleted!!";
-                ViewMembers();
-                Clear_Fields();
+                try
+                {
+                    Member member = new Member();
+                    member.DeleteMember(memberNumber.Text);
+                    Result.Text = "Member Deleted!!";
+                    ViewMembers();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Member From the Table";
             }
+
         }
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (membershipCategory.SelectedIndex != 0 && memberNumber.Text != "")
             {
-                Member member = new Member();
-                member.UpdateMember(memberNumber.Text, membershipCategory.Text, lastName.Text, firstName.Text, address.Text, datePicker.Text);
-                Result.Text = "Member Updated!!";
-                ViewMembers();
-                Clear_Fields();
+                try
+                {
+                    Member member = new Member();
+                    member.UpdateMember(memberNumber.Text, membershipCategory.Text, lastName.Text, firstName.Text, address.Text, datePicker.Text);
+                    Result.Text = "Member Updated!!";
+                    ViewMembers();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Member From the Table";
             }
         }
     }

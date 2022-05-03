@@ -106,33 +106,47 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (categoryNumber.Text != "")
             {
-                MembershipCategory cat = new MembershipCategory();
-                cat.DeleteMembershipCategory(categoryNumber.Text);
-                Result.Text = "Category Deleted!!";
-                ViewMembershipCategory();
-                Clear_Fields();
+                try
+                {
+                    MembershipCategory cat = new MembershipCategory();
+                    cat.DeleteMembershipCategory(categoryNumber.Text);
+                    Result.Text = "Category Deleted!!";
+                    ViewMembershipCategory();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Membership Category From the Table";
             }
         }
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (categoryNumber.Text != "")
             {
-                MembershipCategory cat = new MembershipCategory();
-                cat.UpdateMembershipCategory(categoryNumber.Text, categoryDescription.Text, totalLoans.Text);
-                Result.Text = "Category Updated!!";
-                ViewMembershipCategory();
-                Clear_Fields();
+                try
+                {
+                    MembershipCategory cat = new MembershipCategory();
+                    cat.UpdateMembershipCategory(categoryNumber.Text, categoryDescription.Text, totalLoans.Text);
+                    Result.Text = "Category Updated!!";
+                    ViewMembershipCategory();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Membership Category From the Table";
             }
         }
     }

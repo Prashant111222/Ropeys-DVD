@@ -76,8 +76,25 @@ namespace RopeysDVD
             }
         }
 
+        protected bool IsEmpty()
+        {
+            if (dvdCategory.SelectedIndex == 0 || producer.SelectedIndex == 0 || studio.SelectedIndex == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         protected void Button_Submit_Click(object sender, EventArgs e)
         {
+            if (!IsEmpty())
+            {
+
+            }
+            else
+            {
+                Result.Text = "Please Select Items From the Dropdown Lists";
+            }
             try
             {
                 DVDTitle dvd = new DVDTitle();
@@ -140,33 +157,47 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (!IsEmpty() && dvdNumber.Text != "")
             {
-                DVDTitle dvd = new DVDTitle();
-                dvd.DeleteDVDTitle(dvdNumber.Text);
-                Result.Text = "DVD Deleted!!";
-                ViewDVDs();
-                Clear_Fields();
+                try
+                {
+                    DVDTitle dvd = new DVDTitle();
+                    dvd.DeleteDVDTitle(dvdNumber.Text);
+                    Result.Text = "DVD Deleted!!";
+                    ViewDVDs();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a DVD From the Table";
             }
         }
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (!IsEmpty() && dvdNumber.Text != "")
             {
-                DVDTitle dvd = new DVDTitle();
-                dvd.UpdateDVDTitle(dvdNumber.Text, dvdCategory.Text, studio.Text, producer.Text, dvdTitle.Text, datePicker.Text.ToString(), standardCharge.Text, penaltyCharge.Text);
-                Result.Text = "DVD Updated!!";
-                ViewDVDs();
-                Clear_Fields();
+                try
+                {
+                    DVDTitle dvd = new DVDTitle();
+                    dvd.UpdateDVDTitle(dvdNumber.Text, dvdCategory.Text, studio.Text, producer.Text, dvdTitle.Text, datePicker.Text.ToString(), standardCharge.Text, penaltyCharge.Text);
+                    Result.Text = "DVD Updated!!";
+                    ViewDVDs();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a DVD From the Table";
             }
         }
     }

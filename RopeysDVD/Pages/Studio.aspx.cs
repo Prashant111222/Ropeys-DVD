@@ -82,33 +82,47 @@ namespace RopeysDVD
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (studioNumber.Text != "")
             {
-                Studio studio = new Studio();
-                studio.UpdateStudio(studioNumber.Text, studioName.Text);
-                Result.Text = "Studio Updated!!";
-                ViewStudios();
-                Clear_Fields();
+                try
+                {
+                    Studio studio = new Studio();
+                    studio.UpdateStudio(studioNumber.Text, studioName.Text);
+                    Result.Text = "Studio Updated!!";
+                    ViewStudios();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Studio from the Table";
             }
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (studioNumber.Text != "")
             {
-                Studio studio = new Studio();
-                studio.DeleteStudio(studioNumber.Text);
-                Result.Text = "Studio Deleted!!";
-                ViewStudios();
-                Clear_Fields();
+                try
+                {
+                    Studio studio = new Studio();
+                    studio.DeleteStudio(studioNumber.Text);
+                    Result.Text = "Studio Deleted!!";
+                    ViewStudios();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select a Studio from the Table";
             }
         }
 

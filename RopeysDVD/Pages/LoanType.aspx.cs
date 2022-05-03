@@ -106,33 +106,47 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if (loanTypeNumber.Text != "")
             {
-                LoanType loan = new LoanType();
-                loan.DeleteLoanType(loanTypeNumber.Text);
-                Result.Text = "Loan Type Deleted!!";
-                ViewLoanTypes();
-                Clear_Fields();
+                try
+                {
+                    LoanType loan = new LoanType();
+                    loan.DeleteLoanType(loanTypeNumber.Text);
+                    Result.Text = "Loan Type Deleted!!";
+                    ViewLoanTypes();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Loan Type From the Table";
             }
         }
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (loanTypeNumber.Text != "")
             {
-                LoanType loan = new LoanType();
-                loan.UpdateLoanType(loanTypeNumber.Text, loanType.Text, loanDuration.Text);
-                Result.Text = "Loan Type Updated!!";
-                ViewLoanTypes();
-                Clear_Fields();
+                try
+                {
+                    LoanType loan = new LoanType();
+                    loan.UpdateLoanType(loanTypeNumber.Text, loanType.Text, loanDuration.Text);
+                    Result.Text = "Loan Type Updated!!";
+                    ViewLoanTypes();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select the Loan Type From the Table";
             }
         }
     }

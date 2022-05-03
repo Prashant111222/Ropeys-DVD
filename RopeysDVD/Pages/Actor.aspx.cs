@@ -58,7 +58,7 @@ namespace RopeysDVD
             {
                 Actor actor = new Actor();
                 actor.AddActor(actorSurname.Text, actorFirstName.Text);
-                Result.Text = "Inserted !!";
+                Result.Text = "Actor Inserted !!";
                 ViewActors();
                 Clear_Fields();
             }
@@ -106,33 +106,47 @@ namespace RopeysDVD
 
         protected void Button_Delete_Click(object sender, EventArgs e)
         {
-            try
+            if(actorNumber.Text != "")
             {
-                Actor actor = new Actor();
-                actor.DeleteActor(actorNumber.Text);
-                Result.Text = "Actor Deleted!!";
-                ViewActors();
-                Clear_Fields();
+                try
+                {
+                    Actor actor = new Actor();
+                    actor.DeleteActor(actorNumber.Text);
+                    Result.Text = "Actor Deleted!!";
+                    ViewActors();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select an Actor From the Table";
             }
         }
 
         protected void Button_Update_Click(object sender, EventArgs e)
         {
-            try
+            if (actorNumber.Text != "")
             {
-                Actor actor = new Actor();
-                actor.UpdateActor(actorNumber.Text, actorSurname.Text, actorFirstName.Text);
-                Result.Text = "Actor Updated!!";
-                ViewActors();
-                Clear_Fields();
+                try
+                {
+                    Actor actor = new Actor();
+                    actor.UpdateActor(actorNumber.Text, actorSurname.Text, actorFirstName.Text);
+                    Result.Text = "Actor Updated!!";
+                    ViewActors();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Result.Text = ex.Message;
+                Result.Text = "Please Select an Actor From the Table";
             }
         }
     }
