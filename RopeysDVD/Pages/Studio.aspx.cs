@@ -12,7 +12,7 @@ namespace RopeysDVD
     public partial class Studio1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
             try
             {
                 if (!IsPostBack)
@@ -29,7 +29,7 @@ namespace RopeysDVD
                         string usertype = userCookie.Values["userType"].ToString();
                         if (usertype == "Staff")
                         {
-                            Response.Write("<script>alert('hyaa staff muji')</script>");
+                            Response.Write("<script>alert('Staff Staff')</script>");
                             Response.Redirect("Unauthorized.aspx");
                         }
                     }

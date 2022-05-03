@@ -60,5 +60,14 @@ namespace RopeysDVD
             cmd.ExecuteNonQuery();
             gc.cn.Close();
         }
+
+        public int CheckMemberAge(string memberNumber)
+        {
+            //getting the age of the user
+            string sql = "SELECT DATEDIFF(year, MemberDateOfBirth, CURRENT_TIMESTAMP) from Member WHERE MemberNumber = " + memberNumber;
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            int age = (Int32)cmd.ExecuteScalar();
+            return age;
+        }
     }
 }

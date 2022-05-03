@@ -13,34 +13,34 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) 
-            try
-            {
-                if (!IsPostBack)
+            if (!IsPostBack)
+                try
                 {
-                    HttpCookie userCookie = Request.Cookies["userCookie"];
-                    if (userCookie == null)
+                    if (!IsPostBack)
                     {
-                        Response.Redirect("LoginPage.aspx");
-                    }
-
-                    //cookie found
-                    if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
-                    {
-                        string usertype = userCookie.Values["userType"].ToString();
-                        if (usertype == "Staff")
+                        HttpCookie userCookie = Request.Cookies["userCookie"];
+                        if (userCookie == null)
                         {
-                            Response.Write("<script>alert('hyaa staff muji')</script>");
-                            Response.Redirect("Unauthorized.aspx");
+                            Response.Redirect("LoginPage.aspx");
                         }
+
+                        //cookie found
+                        if (!string.IsNullOrEmpty(userCookie.Values["userType"]))
+                        {
+                            string usertype = userCookie.Values["userType"].ToString();
+                            if (usertype == "Staff")
+                            {
+                                Response.Write("<script>alert('Staff Staff')</script>");
+                                Response.Redirect("Unauthorized.aspx");
+                            }
+                        }
+                        ViewProducers();
                     }
-                    ViewProducers();
                 }
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('exception)</script>");
-            }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('exception)</script>");
+                }
         }
 
         protected void ViewProducers()

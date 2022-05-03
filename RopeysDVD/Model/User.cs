@@ -14,7 +14,7 @@ namespace RopeysDVD
 
         public DataTable SelectUser()
         {
-            string sql = "SELECT * FROM User";
+            string sql = "SELECT * FROM [User]";
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
             DataSet ds = new DataSet();
             sda.Fill(ds, "User");
@@ -24,7 +24,7 @@ namespace RopeysDVD
         public void AddUser(string name, string userType, string userPassword)
         {
             //inserting into the table created from SSM
-            SqlCommand cmd = new SqlCommand("INSERT INTO User (UserName, UserType, UserPasword) values (@name, @userType, @userPasswod)", gc.cn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [User] (UserName, UserType, UserPassword) values (@name, @userType, @userPassword)", gc.cn);
 
             cmd.Parameters.AddWithValue("@name", name);
             cmd.Parameters.AddWithValue("@userType", userType);
@@ -34,14 +34,13 @@ namespace RopeysDVD
             gc.cn.Close();
         }
 
-        public void UpdateUser(string userNumber, string name, string userType, string userPassword)
+        public void UpdateUser(string userNumber, string name, string userPassword)
         {
             //updating into the table row
-            SqlCommand cmd = new SqlCommand("UPDATE  [User] SET UserName = @name, UserType = @userType, UserPassword = @userPassword WHERE UserNumber = @userNumber", gc.cn);
+            SqlCommand cmd = new SqlCommand("UPDATE  [User] SET UserName = @name, UserPassword = @userPassword WHERE UserNumber = @userNumber", gc.cn);
 
             cmd.Parameters.AddWithValue("@userNumber", userNumber);
             cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@userType", userType);
             cmd.Parameters.AddWithValue("@userPassword", userPassword);
 
             cmd.ExecuteNonQuery();

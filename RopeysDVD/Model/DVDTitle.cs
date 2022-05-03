@@ -64,5 +64,21 @@ namespace RopeysDVD
             cmd.ExecuteNonQuery();
             gc.cn.Close();
         }
+
+        public int StandardCharge(string copyNumber)
+        {
+            //getting the price of the DVD
+            string sql = "SELECT DVDTitle.StandardCharge FROM DVDCopy JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber WHERE DVDCopy.CopyNumber = " + copyNumber;
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
+
+        public int PenaltyCharge(string copyNumber)
+        {
+            //getting the price of the DVD
+            string sql = "SELECT DVDTitle.PenaltyCharge FROM DVDCopy JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber WHERE DVDCopy.CopyNumber = " + copyNumber;
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
     }
 }

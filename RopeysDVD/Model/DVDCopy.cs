@@ -64,5 +64,13 @@ namespace RopeysDVD
             sda.Fill(table);
             return table;
         }
+
+        public bool IsAgeResticted(string copyNumber)
+        {
+            //getting if the selected category is age restricted
+            string sql = "SELECT DVDCategory.AgeRestricted FROM DVDCopy JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN DVDCategory ON DVDTitle.CategoryNumber = DVDCategory.CategoryNumber WHERE DVDCopy.CopyNumber = " + copyNumber;
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (bool)cmd.ExecuteScalar();
+        }
     }
 }

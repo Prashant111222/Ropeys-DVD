@@ -10,6 +10,7 @@ namespace RopeysDVD
     public class Loan
     {
         readonly GlobalConnection gc = new GlobalConnection();
+
         public DataTable SelectLoan()
         {
             string sql = "SELECT * FROM Loan";
@@ -61,8 +62,30 @@ namespace RopeysDVD
             //getting loan duration from the loan type number
             string sql = "SELECT LoanDuration from LoanType WHERE LoanTypeNumber = " + loanTypeNumber;
             SqlCommand cmd = new SqlCommand(sql, gc.cn);
-            int duration = (Int32)cmd.ExecuteScalar();
-            return duration;
+            return (Int32)cmd.ExecuteScalar();
+        }
+
+        public int TotalLoanDuration(string loanNumber)
+        {
+            //getting total loan duration
+            string sql = "SELECT DATEDIFF(DAY, DateOut, DateReturned) FROM Loan WHERE LoanNumber = " + loanNumber;
+            gc.cn.Open();
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
+
+        public bool IsReturned(string loanNumber)
+        {
+            //checking if the loan has already been returned
+            string sql = "SELECT DateReturned FROM Loan WHERE LoanNumber = " + loanNumber;
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+
+            //checking if the retrurned value is null
+            if (cmd.ExecuteScalar() != DBNull.Value)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
