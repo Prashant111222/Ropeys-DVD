@@ -42,6 +42,15 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.LinkButton btnSignout;
 
         /// <summary>
+        /// login_sts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label login_sts;
+
+        /// <summary>
         /// ContentPlaceHolder control.
         /// </summary>
         /// <remarks>

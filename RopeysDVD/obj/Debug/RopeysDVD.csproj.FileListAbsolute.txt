@@ -234,3 +234,13 @@ C:\Users\susZ\Desktop\Prashant 5\RopeysDVD\obj\Debug\RopeysDVD.csproj.CopyComple
 C:\Users\susZ\Desktop\Prashant 5\RopeysDVD\obj\Debug\RopeysDVD.dll
 C:\Users\susZ\Desktop\Prashant 5\RopeysDVD\obj\Debug\RopeysDVD.pdb
 C:\Users\susZ\Desktop\Prashant 5\RopeysDVD\obj\Debug\RopeysDVD.csproj.AssemblyReference.cache
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\bin\RopeysDVD.dll.config
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\bin\RopeysDVD.dll
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\bin\RopeysDVD.pdb
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\obj\Debug\RopeysDVD.csproj.AssemblyReference.cache
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\obj\Debug\RopeysDVD.csproj.CoreCompileInputs.cache
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\obj\Debug\RopeysDVD.csproj.CopyComplete
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\obj\Debug\RopeysDVD.dll
+C:\Users\susZ\Desktop\Prashant Final\RopeysDVD\obj\Debug\RopeysDVD.pdb
