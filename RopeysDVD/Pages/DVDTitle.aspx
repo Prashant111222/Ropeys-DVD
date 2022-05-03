@@ -29,45 +29,40 @@
                         <asp:TextBox ID="dvdNumber" type="hidden" class="form-control" runat="server"></asp:TextBox>
                         <label for="exampleInputEmail1" class="form-label">DVD Title</label>
                         <asp:TextBox ID="dvdTitle" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="dvdTitle"
+                        <asp:RequiredFieldValidator runat="server" ID="validatorId" ControlToValidate="dvdTitle"
                             ValidationGroup="required" ErrorMessage="Please Provide the DVD Title!" ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Date Released</label>
                         <asp:TextBox ID="datePicker" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="datePicker"
+                        <asp:RequiredFieldValidator runat="server" ID="id1" ControlToValidate="datePicker"
                             ValidationGroup="required" ErrorMessage="Please Provide the Released Date!"
                             ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Standard Charge</label>
                         <asp:TextBox ID="standardCharge" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="standardCharge"
+                        <asp:RequiredFieldValidator runat="server" ID="id2" ControlToValidate="standardCharge"
                             ValidationGroup="required" ErrorMessage="Please Provide the Standard Charge!"
                             ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Penalty Charge</label>
                         <asp:TextBox ID="penaltyCharge" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="penaltyCharge"
+                        <asp:RequiredFieldValidator runat="server" ID="id3" ControlToValidate="penaltyCharge"
                             ValidationGroup="required" ErrorMessage="Please Provide the Penalty Charge!"
                             ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <asp:Label ID="Result" runat="server" Text=""></asp:Label>
                 </div>
-                <br />
                 <br />
                 <div class="col d-flex justify-content-center">
                     <asp:Button ID="Button_Submit" ValidationGroup="required" CssClass="btn btn-primary" runat="server"

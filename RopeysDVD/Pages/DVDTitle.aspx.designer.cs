@@ -60,6 +60,15 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.TextBox dvdTitle;
 
         /// <summary>
+        /// validatorId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorId;
+
+        /// <summary>
         /// datePicker control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace RopeysDVD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox datePicker;
+
+        /// <summary>
+        /// id1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator id1;
 
         /// <summary>
         /// standardCharge control.
@@ -78,6 +96,15 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.TextBox standardCharge;
 
         /// <summary>
+        /// id2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator id2;
+
+        /// <summary>
         /// penaltyCharge control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace RopeysDVD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox penaltyCharge;
+
+        /// <summary>
+        /// id3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator id3;
 
         /// <summary>
         /// Result control.

@@ -33,6 +33,15 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.TextBox loanType;
 
         /// <summary>
+        /// id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator id;
+
+        /// <summary>
         /// loanDuration control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace RopeysDVD
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox loanDuration;
+
+        /// <summary>
+        /// id1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator id1;
 
         /// <summary>
         /// Result control.

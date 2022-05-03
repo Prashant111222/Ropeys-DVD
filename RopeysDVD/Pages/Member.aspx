@@ -21,36 +21,32 @@
                             ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Member First Name</label>
                         <asp:TextBox ID="firstName" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="firstName"
+                        <asp:RequiredFieldValidator runat="server" ID="id1" ControlToValidate="firstName"
                             ValidationGroup="required" ErrorMessage="Please Provide the Member First Name!"
                             ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Member Address</label>
                         <asp:TextBox ID="address" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="address"
+                        <asp:RequiredFieldValidator runat="server" ID="id2" ControlToValidate="address"
                             ValidationGroup="required" ErrorMessage="Please Provide the Member Address!"
                             ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Member Date of Birth</label>
                         <asp:TextBox ID="datePicker" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="datePicker"
+                        <asp:RequiredFieldValidator runat="server" ID="id3" ControlToValidate="datePicker"
                             ValidationGroup="required" ErrorMessage="Please Provide the Member DOB!" ForeColor="Red" />
                     </div>
                 </div>
-                <br />
                 <div class="col d-flex justify-content-center">
                     <asp:Label ID="Result" runat="server" Text=""></asp:Label>
                 </div>

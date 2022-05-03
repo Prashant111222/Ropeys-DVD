@@ -19,7 +19,7 @@
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Total Loans</label>
                         <asp:TextBox ID="totalLoans" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="totalLoans"
+                        <asp:RequiredFieldValidator runat="server" ID="id1" ControlToValidate="totalLoans"
                             ValidationGroup="required" ErrorMessage="Please Provide the Total Loans!" ForeColor="Red" />
                     </div>
                 </div>

@@ -18,7 +18,7 @@
                     <div class="col-md-4">
                         <label for="exampleInputPassword1" class="form-label">Loan Duration</label>
                         <asp:TextBox ID="loanDuration" class="form-control" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="loanType"
+                        <asp:RequiredFieldValidator runat="server" ID="id1" ControlToValidate="loanType"
                             ValidationGroup="required" ErrorMessage="Please Provide the Loan Duration!"
                             ForeColor="Red" />
                     </div>
