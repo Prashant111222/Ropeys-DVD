@@ -11,7 +11,6 @@ namespace RopeysDVD
     {
         readonly GlobalConnection gc = new GlobalConnection();
 
-
         public DataTable SelectUser()
         {
             string sql = "SELECT * FROM [User]";

@@ -11,7 +11,12 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                //Index index = new Index();
 
+
+            }
         }
     }
 }
