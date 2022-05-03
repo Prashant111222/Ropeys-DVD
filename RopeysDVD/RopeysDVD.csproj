@@ -71,6 +71,7 @@
     <Content Include="Pages\AssistantDashboard.aspx" />
     <Content Include="css\Forbidden.css" />
     <Content Include="css\Style.css" />
+    <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\DVDCategory.aspx" />
     <Content Include="Pages\DVDCopy.aspx" />
     <Content Include="Pages\DVDTitle.aspx" />
@@ -104,6 +105,13 @@
       <DependentUpon>AssistantDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\CastMember.cs" />
+    <Compile Include="Pages\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DVDCategory.aspx.cs">
       <DependentUpon>DVDCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

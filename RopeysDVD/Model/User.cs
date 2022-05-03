@@ -56,5 +56,17 @@ namespace RopeysDVD
             cmd.ExecuteNonQuery();
             gc.cn.Close();
         }
+
+        public void ChangePassword(string userNumber, string userPassword)
+        {
+            //updating into the table row
+            SqlCommand cmd = new SqlCommand("UPDATE [User] SET UserPassword = @userPassword WHERE UserNumber = @userNumber", gc.cn);
+
+            cmd.Parameters.AddWithValue("@userNumber", userNumber);
+            cmd.Parameters.AddWithValue("@userPassword", userPassword);
+
+            cmd.ExecuteNonQuery();
+            gc.cn.Close();
+        }
     }
 }

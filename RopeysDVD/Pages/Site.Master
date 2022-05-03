@@ -58,6 +58,10 @@
             <div>
                 <a href="Home.aspx" class="nav_logo"><i class='bx bx-layer nav_logo-icon'></i><span class="nav_logo-name">Ropey's DVD</span> </a>
                 <div class="nav_list">
+                    <a href="AssistantDashboard.aspx" class="nav_link">
+                        <i class='bx bxs-dashboard nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
                     <a href="DVDTitle.aspx" class="nav_link">
                         <i class='bx bx-message-square-detail nav_icon'></i>
                         <span class="nav_name">DVD Title</span>
@@ -97,6 +101,10 @@
                     <a href="MembershipCategory.aspx" class="nav_link">
                         <i class='bx bxs-user-detail nav_icon'></i>
                         <span class="nav_name">Membership Category</span>
+                    </a>
+                    <a href="ChangePassword.aspx" class="nav_link">
+                        <i class='bx bxs-lock-alt nav_icon'>
+                        </i><span class="nav_name">Update Profile</span>
                     </a>
                     <a href="Users.aspx" class="nav_link">
                         <i class='bx bx-user-circle nav_icon'>

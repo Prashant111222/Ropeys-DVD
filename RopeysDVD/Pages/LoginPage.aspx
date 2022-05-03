@@ -16,7 +16,7 @@
     <div class="col d-flex justify-content-center">
         <div class="form-outline col-md-4">
             <label class="form-label" for="form2Example2">Password</label>
-            <asp:TextBox ID="tfPassword" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tfPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
         </div>
     </div>
     
