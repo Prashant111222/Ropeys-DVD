@@ -102,7 +102,7 @@
                         <i class='bx bxs-user-detail nav_icon'></i>
                         <span class="nav_name">Membership Category</span>
                     </a>
-                    <a href="OutdatedMovie.aspx" class="nav_link">
+                    <a href="OutdatedMovies.aspx" class="nav_link">
                         <i class='bx bxs-folder-minus nav_icon'></i>
                         <span class="nav_name">Remove Movies</span>
                     </a>

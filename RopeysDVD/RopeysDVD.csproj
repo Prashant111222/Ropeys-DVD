@@ -81,7 +81,7 @@
     <Content Include="Pages\LoginPage.aspx" />
     <Content Include="Pages\Member.aspx" />
     <Content Include="Pages\MembershipCategory.aspx" />
-    <Content Include="Pages\OutdatedMovie.aspx" />
+    <Content Include="Pages\OutdatedMovies.aspx" />
     <Content Include="Pages\Producer.aspx" />
     <Content Include="Pages\Studio.aspx" />
     <Content Include="Pages\Unauthorized.aspx" />
@@ -180,12 +180,12 @@
       <DependentUpon>MembershipCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\MembershipCategory.cs" />
-    <Compile Include="Pages\OutdatedMovie.aspx.cs">
-      <DependentUpon>OutdatedMovie.aspx</DependentUpon>
+    <Compile Include="Pages\OutdatedMovies.aspx.cs">
+      <DependentUpon>OutdatedMovies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\OutdatedMovie.aspx.designer.cs">
-      <DependentUpon>OutdatedMovie.aspx</DependentUpon>
+    <Compile Include="Pages\OutdatedMovies.aspx.designer.cs">
+      <DependentUpon>OutdatedMovies.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Producer.aspx.cs">
       <DependentUpon>Producer.aspx</DependentUpon>
