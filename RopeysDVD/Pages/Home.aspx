@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Ropeys DVD | Home" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="RopeysDVD.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
     <div class="col d-flex justify-content-center">
+        <h3 style="font-weight: bold">Ropey's DVD | Home</h3>
+    </div>
+    <div class="col d-flex justify-content-center">
         <asp:Label ID="Result" runat="server" Text=""></asp:Label>
     </div>
     <div class="card col-sm-11" style="margin:1rem">
