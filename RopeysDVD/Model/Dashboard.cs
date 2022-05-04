@@ -67,7 +67,7 @@ namespace RopeysDVD
         public DataTable GetDVDCopyNumber()
         {
             //getting the copy number for every copies
-            string sql = "SELECT DISTINCT DVDCopy.CopyNumber FROM Member JOIN Loan ON Member.MemberNumber = Loan.MemberNumber LEFT JOIN DVDCopy ON Loan.CopyNumber = DVDCopy.CopyNumber;";
+            string sql = "SELECT DISTINCT DVDCopy.CopyNumber FROM Member JOIN Loan ON Member.MemberNumber = Loan.MemberNumber LEFT JOIN DVDCopy ON Loan.CopyNumber = DVDCopy.CopyNumber";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
@@ -93,7 +93,7 @@ namespace RopeysDVD
         public DataTable GetDVDCopyDetails(int copyNumber)
         {
             //getting the details of DVD with respective to specific DVD copy
-            string sql = "SELECT TOP 1 Loan.MemberNumber, Member.MemberFirstName, Member.MemberLastName, DVDTitle.DVDTitle, Loan.DateOut, Loan.DateDue, Loan.DateReturned FROM Loan LEFT JOIN Member ON Loan.MemberNumber = Member.MemberNumber LEFT JOIN DVDCopy ON Loan.CopyNumber = DVDCopy.CopyNumber LEFT JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber WHERE DVDCopy.CopyNumber=" + copyNumber + "AND Loan.DateOut IN(SELECT MAX(Dateout) FROM Loan WHERE CopyNumber=" + copyNumber + ")";
+            string sql = "SELECT TOP 1 Loan.MemberNumber, Member.MemberFirstName, Member.MemberLastName, DVDTitle.DVDTitle, Loan.DateOut, Loan.DateDue, Loan.DateReturned FROM Loan LEFT JOIN Member ON Loan.MemberNumber = Member.MemberNumber LEFT JOIN DVDCopy ON Loan.CopyNumber = DVDCopy.CopyNumber LEFT JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber WHERE DVDCopy.CopyNumber=" + copyNumber + " AND Loan.DateOut IN(SELECT MAX(Dateout) FROM Loan WHERE CopyNumber=" + copyNumber + ")";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
@@ -142,11 +142,10 @@ namespace RopeysDVD
             return ds.Tables[0];
         }
 
-        //12
-        public DataTable GetNoBorrowedMovies()
+        public DataTable GetNoLoanedMovies()
         {
-            //members who have not borrowed books since last 31 days and their previous loaned details
-            string sql = "SELECT DVDTitle.DVDtitle FROM DVDTitle JOIN DVDCopy ON DVDTitle.DVDNumber = DVDCopy.DVDNumber JOIN Loan ON Loan.CopyNumber =  DVDCopy.CopyNumber WHERE Loan.DateOut < CURRENT_TIMESTAMP - 31; ";
+            //displaying the list of DVDs that have not been loaned in last 31 days
+            string sql = "SELECT DVDTitle.DVDtitle FROM DVDTitle JOIN DVDCopy ON DVDTitle.DVDNumber = DVDCopy.DVDNumber JOIN Loan ON Loan.CopyNumber =  DVDCopy.CopyNumber WHERE Loan.DateOut < CURRENT_TIMESTAMP - 31";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
@@ -156,10 +155,10 @@ namespace RopeysDVD
             return ds.Tables[0];
         }
 
-        public DataTable GetNoLoanedMovies()
+        public DataTable GetNoBorrowedMovies()
         {
-            //displaying the list of DVDs that have not been loaned in last 31 days
-            string sql = "SELECT DVDTitle.DVDtitle FROM DVDTitle JOIN DVDCopy ON DVDTitle.DVDNumber = DVDCopy.DVDNumber JOIN Loan ON Loan.CopyNumber =  DVDCopy.CopyNumber WHERE Loan.DateOut < CURRENT_TIMESTAMP - 31; ";
+            //members who have not borrowed books since last 31 days and their previous loaned details            
+            string sql = "SELECT DVDTitle.DVDTitle, MAX(Loan.DateOut) AS 'DateOut', Member.MemberNumber, Member.MemberFirstName, Member.MemberLastName, DATEDIFF(day, MAX(Loan.DateOut), getdate()) AS Days FROM DVDTitle LEFT JOIN DVDCopy ON DVDTitle.DVDNumber = DVDCopy.DVDNumber LEFT JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber LEFT JOIN Member ON Loan.MemberNumber = Member.MemberNumber GROUP BY DVDTitle.DVDTitle,Member.MemberNumber,Member.MemberFirstName, Member.MemberLastName HAVING MAX(Loan.DateOut) IN (SELECT MAX(Loan.DateOut) AS DateOut FROM Loan GROUP BY MemberNumber HAVING MAX(Loan.DateOut) < CURRENT_TIMESTAMP - 31) ORDER BY MAX(Loan.DateOut)";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
