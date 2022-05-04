@@ -89,24 +89,23 @@ namespace RopeysDVD
         {
             if (!IsEmpty())
             {
-
+                try
+                {
+                    DVDTitle dvd = new DVDTitle();
+                    dvd.AddDVDTitle(dvdCategory.SelectedValue, studio.SelectedValue, producer.SelectedValue, dvdTitle.Text, datePicker.Text.ToString(), standardCharge.Text, penaltyCharge.Text);
+                    Result.Text = "DVD Inserted !!";
+                    ViewDVDs();
+                    Clear_Fields();
+                }
+                catch (Exception ex)
+                {
+                    Result.Text = ex.Message;
+                }
             }
             else
             {
                 Result.Text = "Please Select Items From the Dropdown Lists";
-            }
-            try
-            {
-                DVDTitle dvd = new DVDTitle();
-                dvd.AddDVDTitle(dvdCategory.SelectedValue, studio.SelectedValue, producer.SelectedValue, dvdTitle.Text, datePicker.Text.ToString(), standardCharge.Text, penaltyCharge.Text);
-                Result.Text = "DVD Inserted !!";
-                ViewDVDs();
-                Clear_Fields();
-            }
-            catch (Exception ex)
-            {
-                Result.Text = ex.Message;
-            }
+            }            
         }
 
         protected void Clear_Fields()

@@ -89,8 +89,8 @@
     <Content Include="Pages\Home.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Model\Index.cs" />
+    <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Model\OutdatedMovie.cs" />
     <Compile Include="Pages\Actor.aspx.cs">
       <DependentUpon>Actor.aspx</DependentUpon>

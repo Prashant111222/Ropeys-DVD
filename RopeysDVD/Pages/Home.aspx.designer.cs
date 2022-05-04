@@ -15,6 +15,15 @@ namespace RopeysDVD
     {
 
         /// <summary>
+        /// Result control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Result;
+
+        /// <summary>
         /// actorList control.
         /// </summary>
         /// <remarks>
@@ -24,12 +33,30 @@ namespace RopeysDVD
         protected global::System.Web.UI.WebControls.DropDownList actorList;
 
         /// <summary>
-        /// ActorGV control.
+        /// MovieGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView ActorGV;
+        protected global::System.Web.UI.WebControls.GridView MovieGV;
+
+        /// <summary>
+        /// actorList1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList actorList1;
+
+        /// <summary>
+        /// MovieGV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView MovieGV1;
     }
 }

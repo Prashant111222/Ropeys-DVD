@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace RopeysDVD.Model
+namespace RopeysDVD
 {
     public class Index
     {

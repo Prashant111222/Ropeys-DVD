@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace RopeysDVD.Model
+namespace RopeysDVD
 {
     public class OutdatedMovie
     {
