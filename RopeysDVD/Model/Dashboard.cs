@@ -132,7 +132,7 @@ namespace RopeysDVD
         public DataTable GetMovieOnLoan()
         {
             //Overall details of loaned DVDs 
-            string sql = "SELECT CAST(Loan.DateOut AS DATE), DVDTitle.DVDTitle,DVDCopy.CopyNumber, Member.MemberFirstName FROM DVDCopy JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN Member ON Loan.MemberNumber = Member.MemberNumber WHERE Loan.DateReturned IS NULL ORDER BY CAST(Loan.DateOut AS DATE), DVDTitle.DVDTitle";
+            string sql = "SELECT CAST(Loan.DateOut AS DATE) AS DateOut, DVDTitle.DVDTitle,DVDCopy.CopyNumber, Member.MemberFirstName FROM DVDCopy JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN Member ON Loan.MemberNumber = Member.MemberNumber WHERE Loan.DateReturned IS NULL ORDER BY CAST(Loan.DateOut AS DATE), DVDTitle.DVDTitle";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
