@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="DVD Category" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="DVDCategory.aspx.cs" Inherits="RopeysDVD.DVDCategory1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <div class="col d-flex justify-content-center">
+        <h3 style="font-weight: bold">DVD Category</h3>
+    </div>
     <div class="card col-md-12">
         <div class="card-body">
             <div class="col d-flex justify-content-center">
@@ -7,7 +11,7 @@
                     <asp:TextBox ID="dvdCategoryNumber" type="hidden" class="form-control" runat="server"></asp:TextBox>
                     <label for="exampleInputEmail1" class="form-label">Category Description</label>
                     <asp:TextBox ID="categoryDescription" class="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="categoryDescription" ValidationGroup="required" ErrorMessage="Please Enter Category Description!" ForeColor="Red"/>
+                    <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="categoryDescription" ValidationGroup="required" ErrorMessage="Please Enter Category Description!" ForeColor="Red" />
                 </div>
             </div>
             <br />
@@ -24,8 +28,8 @@
             <div class="col d-flex justify-content-center">
                 <asp:Label ID="Result" runat="server" Text=""></asp:Label>
             </div>
-                <br />
-                <br />
+            <br />
+            <br />
             <div class="col d-flex justify-content-center">
                 <asp:Button ID="Button_Submit" ValidationGroup="required" CssClass="btn btn-primary" runat="server" Text="Add Category" OnClick="Button_Submit_Click" />
                 <div class="divider"></div>

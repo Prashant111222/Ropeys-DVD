@@ -107,15 +107,18 @@ namespace RopeysDVD
             cmd.Connection = gc.cn;
             string index = Convert.ToString(e.CommandArgument);
 
-            string strData = "SELECT * FROM DVDCopy Where CopyNumber='" + index + "'";
+            string strData = "SELECT * FROM DVDCopy WHERE CopyNumber=" + index;
             SqlDataAdapter da = new SqlDataAdapter(strData, gc.cn);
             DataSet ds = new DataSet();
             da.Fill(ds, "DVDCopy");
             DataTable dt = ds.Tables[0];
 
-            copyNumber.Text = dt.Rows[0]["CopyNumber"].ToString();
-            dvdNumber.SelectedValue = dt.Rows[0]["DVDNumber"].ToString();
-            datePicker.Text = dt.Rows[0]["DatePurchased"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                copyNumber.Text = dt.Rows[0]["CopyNumber"].ToString();
+                dvdNumber.SelectedValue = dt.Rows[0]["DVDNumber"].ToString();
+                datePicker.Text = dt.Rows[0]["DatePurchased"].ToString();
+            }
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

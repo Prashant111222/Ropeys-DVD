@@ -52,5 +52,14 @@ namespace RopeysDVD
             cmd.ExecuteNonQuery();
             gc.cn.Close();
         }
+
+        public int LastProducer()
+        {
+            //getting lastly added producer number
+            string sql = "SELECT TOP 1 ProducerNumber FROM Producer ORDER BY ProducerNumber DESC";
+            gc.cn.Open();
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
     }
 }

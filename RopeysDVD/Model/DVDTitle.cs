@@ -80,5 +80,14 @@ namespace RopeysDVD
             SqlCommand cmd = new SqlCommand(sql, gc.cn);
             return (Int32)cmd.ExecuteScalar();
         }
+
+        public int LastDVDTitle()
+        {
+            //getting lastly added DVD number
+            string sql = "SELECT TOP 1 DVDNumber FROM DVDTitle ORDER BY DVDNumber DESC";
+            gc.cn.Open();
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
     }
 }

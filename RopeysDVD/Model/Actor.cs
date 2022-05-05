@@ -54,5 +54,14 @@ namespace RopeysDVD
             cmd.ExecuteNonQuery();
             gc.cn.Close();
         }
+
+        public int LastActor()
+        {
+            //getting lastly added actor number
+            string sql = "SELECT TOP 1 ActorNumber FROM Actor ORDER BY ActorNumber DESC";
+            gc.cn.Open();
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
     }
 }

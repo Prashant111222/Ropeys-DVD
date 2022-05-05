@@ -106,7 +106,7 @@ namespace RopeysDVD
         public DataTable GetMemberLoanDetails()
         {
             //Getting member details and their loan details for displaying in the table
-            string sql = "SELECT Member.MemberNumber AS 'MemberNo.', CONCAT(Member.MemberFirstName, ' ', Member.MemberLastName) AS 'Name', Member.MemberAddress AS 'Address', Member.MemberDateOfBirth as 'DOB', MembershipCategory.MembershipCategoryDescription AS 'Membership Type', MembershipCategory.MembershipCategoryTotalLoans AS 'Allowed Loans', COUNT(Loan.MemberNumber) AS CurrentlyLoaned, CASE WHEN COUNT(Loan.MemberNumber) > MembershipCategory.MembershipCategoryTotalLoans THEN 'Too Many DVDs.' WHEN COUNT(Loan.MemberNumber) = 0 THEN 'No Pending Loans' ELSE 'Healthy Loan Amount.'  END AS Remarks FROM Member LEFT JOIN MembershipCategory ON Member.MembershipCategoryNumber = MembershipCategory.MembershipCategoryNumber LEFT JOIN Loan ON Member.MemberNumber = Loan.MemberNumber GROUP BY Member.MemberNumber, Member.MemberFirstName, MemberLastName, Member.MemberAddress, Member.MemberDateOfBirth, MembershipCategory.MembershipCategoryDescription, MembershipCategory.MembershipCategoryTotalLoans, Loan.MemberNumber";
+            string sql = "SELECT Member.MemberNumber AS 'MemberNo.', CONCAT(Member.MemberFirstName, ' ', Member.MemberLastName) AS 'Name', Member.MemberAddress AS 'Address', Member.MemberDateOfBirth as 'DOB', MembershipCategory.MembershipCategoryDescription AS 'Membership Type', MembershipCategory.MembershipCategoryTotalLoans AS 'Allowed Loans', COUNT(Loan.MemberNumber) AS CurrentlyLoaned, CASE WHEN COUNT(Loan.MemberNumber) > MembershipCategory.MembershipCategoryTotalLoans THEN 'Too Many DVDs.' WHEN COUNT(Loan.MemberNumber) = 0 THEN 'No Pending Loans' ELSE 'Healthy Loan Amount.'  END AS Remarks FROM Member LEFT JOIN MembershipCategory ON Member.MembershipCategoryNumber = MembershipCategory.MembershipCategoryNumber LEFT JOIN Loan ON Member.MemberNumber = Loan.MemberNumber GROUP BY Member.MemberNumber, Member.MemberFirstName, MemberLastName, Member.MemberAddress, Member.MemberDateOfBirth, MembershipCategory.MembershipCategoryDescription, MembershipCategory.MembershipCategoryTotalLoans, Loan.MemberNumber ORDER BY Name";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
@@ -119,7 +119,7 @@ namespace RopeysDVD
         public DataTable GetLoanedMovieDetails()
         {
             //getting the total number of DVDs being loaned in specific day
-            string sql = "SELECT Loan.DateOut, COUNT(Loan.DateOut) AS 'Total Loans' FROM DVDCopy JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN Member ON Loan.MemberNumber = Member.MemberNumber WHERE Loan.DateReturned IS NULL GROUP BY Loan.DateOut ORDER BY Loan.DateOut";
+            string sql = "SELECT CAST(Loan.DateOut AS DATE) AS DateOut, COUNT(Loan.DateOut) AS 'Total Loans' FROM DVDCopy JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN Member ON Loan.MemberNumber = Member.MemberNumber WHERE Loan.DateReturned IS NULL GROUP BY CAST(Loan.DateOut AS DATE) ORDER BY CAST(Loan.DateOut AS DATE)";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
@@ -132,7 +132,7 @@ namespace RopeysDVD
         public DataTable GetMovieOnLoan()
         {
             //Overall details of loaned DVDs 
-            string sql = "SELECT Loan.DateOut, DVDTitle.DVDTitle,DVDCopy.CopyNumber, Member.MemberFirstName FROM DVDCopy JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN Member ON Loan.MemberNumber = Member.MemberNumber WHERE Loan.DateReturned IS NULL ORDER BY Loan.DateOut, DVDTitle.DVDTitle";
+            string sql = "SELECT CAST(Loan.DateOut AS DATE), DVDTitle.DVDTitle,DVDCopy.CopyNumber, Member.MemberFirstName FROM DVDCopy JOIN Loan ON DVDCopy.CopyNumber = Loan.CopyNumber JOIN DVDTitle ON DVDCopy.DVDNumber = DVDTitle.DVDNumber JOIN Member ON Loan.MemberNumber = Member.MemberNumber WHERE Loan.DateReturned IS NULL ORDER BY CAST(Loan.DateOut AS DATE), DVDTitle.DVDTitle";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 

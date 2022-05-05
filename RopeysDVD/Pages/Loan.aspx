@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="Loan.aspx.cs" Inherits="RopeysDVD.Loan1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <div class="col d-flex justify-content-center">
+        <h3 style="font-weight: bold">Issue Loans</h3>
+    </div>
     <div class="card col-md-12">
         <div class="card-body">
             <div class="col d-flex justify-content-center">
@@ -27,8 +31,8 @@
             <div class="col d-flex justify-content-center">
                 <asp:Label ID="Result" runat="server" Text=""></asp:Label>
             </div>
-                <br />
-                <br />
+            <br />
+            <br />
             <div class="col d-flex justify-content-center">
                 <asp:Button ID="Button_Submit" CssClass="btn btn-primary" runat="server" Text="Add Loan" OnClick="Button_Submit_Click" />
                 <div class="divider"></div>

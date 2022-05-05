@@ -22,15 +22,17 @@ namespace RopeysDVD
         }
 
         public void AddCastMember(string dvdNumber, string actorNumber)
-        {
+        {            
+            GlobalConnection globalConnection = new GlobalConnection();
+
             //inserting into the table created from SSM
-            SqlCommand cmd = new SqlCommand("INSERT INTO CastMember (DVDNumber, ActorNumber) values (@dvdNumber, @actorNumber)", gc.cn);
+            SqlCommand cmd = new SqlCommand("INSERT INTO CastMember (DVDNumber, ActorNumber) values (@dvdNumber, @actorNumber)", globalConnection.cn);
 
             cmd.Parameters.AddWithValue("@dvdNumber", dvdNumber);
             cmd.Parameters.AddWithValue("@actorNumber", actorNumber);
 
             cmd.ExecuteNonQuery();
-            gc.cn.Close();
+            globalConnection.cn.Close();
         }
 
         public void DeleteCastMemberActor(string actorNumber)

@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Pages/Site.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="RopeysDVD.Pages.Users" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder" runat="server">
+    <div class="col d-flex justify-content-center">
+        <h3 style="font-weight: bold">User Details</h3>
+    </div>
     <div class="card col-md-12">
         <div class="card-body">
             <div class="col d-flex justify-content-center">
@@ -7,7 +11,7 @@
                     <asp:TextBox ID="userNumber" type="hidden" class="form-control" runat="server"></asp:TextBox>
                     <label for="exampleInputEmail1" class="form-label">User Name</label>
                     <asp:TextBox ID="userName" class="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="userName" ValidationGroup="required" ErrorMessage="Please Enter User Name!" ForeColor="Red"/>
+                    <asp:RequiredFieldValidator runat="server" ID="id" ControlToValidate="userName" ValidationGroup="required" ErrorMessage="Please Enter User Name!" ForeColor="Red" />
                 </div>
             </div>
             <div class="col d-flex justify-content-center">
@@ -24,15 +28,15 @@
                 <div class="col-md-4">
                     <label for="exampleInputEmail1" class="form-label">User Password</label>
                     <asp:TextBox ID="userPassword" class="form-control" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="userPassword" ValidationGroup="required" ErrorMessage="Please Enter User Password!" ForeColor="Red"/>
+                    <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="userPassword" ValidationGroup="required" ErrorMessage="Please Enter User Password!" ForeColor="Red" />
                 </div>
             </div>
-                <br />
+            <br />
             <div class="col d-flex justify-content-center">
                 <asp:Label ID="Result" runat="server" Text=""></asp:Label>
             </div>
-                <br />
-                <br />
+            <br />
+            <br />
             <div class="col d-flex justify-content-center">
                 <asp:Button ID="Button_Submit" ValidationGroup="required" CssClass="btn btn-primary" runat="server" Text="Add User" OnClick="Button_Submit_Click" />
                 <div class="divider"></div>

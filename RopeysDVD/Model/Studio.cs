@@ -52,5 +52,14 @@ namespace RopeysDVD
             cmd.ExecuteNonQuery();
             gc.cn.Close();
         }
+
+        public int LastStudio()
+        {
+            //getting lastly added studio number
+            string sql = "SELECT TOP 1 StudioNumber FROM Studio ORDER BY StudioNumber DESC";
+            gc.cn.Open();
+            SqlCommand cmd = new SqlCommand(sql, gc.cn);
+            return (Int32)cmd.ExecuteScalar();
+        }
     }
 }
