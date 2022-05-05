@@ -44,16 +44,18 @@
         }
     </style>
 </head>
-<body id="body-pd" class="body-pd">
-    <header class="header body-pd" id="header">
+<body id="body-pd">
+    <header class="header" id="header">
         <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
         <div class="header_img">
-            <img src="https://i.imgur.com/hczKIze.jpg" alt="">
+            <a href="ChangePassword.aspx">
+                <img src="https://i.ibb.co/Mn5tHQ1/avatar.png" alt="">
+            </a>
         </div>
     </header>
 
     <form id="form1" runat="server">
-        <div class="l-navbar show" id="nav-bar">
+        <div class="l-navbar" id="nav-bar">
             <nav class="nav">
                 <div>
                     <a href="Home.aspx" class="nav_logo"><i class='bx bx-layer nav_logo-icon'></i><span class="nav_logo-name">Ropey's DVD</span> </a>
@@ -62,18 +64,29 @@
                             <i class='bx bxs-dashboard nav_icon'></i>
                             <span class="nav_name">Dashboard</span>
                         </a>
-                        <a href="DVDTitle.aspx" class="nav_link">
-                            <i class='bx bx-message-square-detail nav_icon'></i>
-                            <span class="nav_name">DVD Title</span>
-                        </a>
-                        <a href="DVDCopy.aspx" class="nav_link">
-                            <i class='bx bxs-disc nav_icon'></i>
-                            <span class="nav_name">DVD Copy</span>
-                        </a>
-                        <a href="DVDCategory.aspx" class="nav_link">
-                            <i class='bx bx-folder nav_icon'></i>
-                            <span class="nav_name">DVD Category</span>
-                        </a>
+
+                        <!-- DVD dropdown -->
+                        <asp:Button ID="dropdown" class="dropdown-btn nav_linkd" runat="server" Text="DVD Actions" OnClientClick="return false;" Font-Bold="True" />
+
+                        <div class="dropdown-container">
+                            <a href="DVDTitle.aspx" class="nav_linkd">
+                                <i class='bx bx-message-square-detail nav_icon'></i>
+                                <span class="nav_named">DVD Title</span>
+                            </a>
+                            <a href="DVDCopy.aspx" class="nav_linkd">
+                                <i class='bx bxs-disc nav_icon'></i>
+                                <span class="nav_named">DVD Copy</span>
+                            </a>
+                            <a href="DVDCategory.aspx" class="nav_linkd">
+                                <i class='bx bx-folder nav_icon'></i>
+                                <span class="nav_named">DVD Category</span>
+                            </a>
+                            <a href="OutdatedMovies.aspx" class="nav_linkd">
+                                <i class='bx bxs-folder-minus nav_icon'></i>
+                                <span class="nav_named">Remove Movies</span>
+                            </a>
+                        </div>
+
                         <a href="Actor.aspx" class="nav_link">
                             <i class='bx bx-user-voice nav_icon'></i>
                             <span class="nav_name">Actor</span>
@@ -102,10 +115,7 @@
                             <i class='bx bxs-user-detail nav_icon'></i>
                             <span class="nav_name">Membership Category</span>
                         </a>
-                        <a href="OutdatedMovies.aspx" class="nav_link">
-                            <i class='bx bxs-folder-minus nav_icon'></i>
-                            <span class="nav_name">Remove Movies</span>
-                        </a>
+
                         <a href="ChangePassword.aspx" class="nav_link">
                             <i class='bx bxs-lock-alt nav_icon'></i><span class="nav_name">Update Profile</span>
                         </a>
@@ -131,7 +141,22 @@
         const myDatePicker = MCDatepicker.create({
             el: '#ContentPlaceHolder_datePicker',
             bodyType: 'modal',
-        })
+        });
+
+        /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
     </script>
 </body>
 </html>

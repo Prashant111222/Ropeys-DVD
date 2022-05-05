@@ -48,13 +48,13 @@
         <!-- Status Message -->
         <div class="col d-flex justify-content-center">
             <div class="form-outline col-md-4">
-                <asp:Label ID="lblStatus" CssClass="alert alert-warning" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblStatus" CssClass="alert pl-5" runat="server" Text="" ForeColor="Red" Font-Size="Large"></asp:Label>
             </div>
         </div>
-
+        <br />
         <!-- Submit button -->
         <div class="col d-flex justify-content-center">
-            <asp:Button ID="Signin_Button" CssClass="btn btn-primary" runat="server" Text="Sign in" OnClick="Signin_Button_Click1" />
+            <asp:Button ID="Signin_Button" CssClass="btn btn-primary" Width="600px" runat="server" Text="Sign in" OnClick="Signin_Button_Click1" Font-Size="Large" />
         </div>
         <br />
         <div class="text-center">

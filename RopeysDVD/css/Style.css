@@ -89,7 +89,54 @@ a {
     grid-template-columns: max-content max-content;
     align-items: center;
     column-gap: 1rem;
-    padding: .4rem 0 .4rem 1.5rem
+    padding: .4rem 0 .2rem 1.5rem
+}
+
+.nav_logo,
+.nav_linkd {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 0.5rem;
+    padding: .4rem 0 .7rem 1.5rem
+}
+
+nav_linkd a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #1e90ff;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.dropdown-btn {
+    padding: 6px 8px 0px 16px;
+    text-decoration: none;
+    font-size: 16.5px;
+    color: #1e90ff;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 1.2rem;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    font-size: 14px;
+    margin-top: -8px;
+    margin-bottom: 12px;
+    color: #1e90ff;
 }
 
 .nav_logo {
@@ -113,9 +160,13 @@ a {
     transition: .3s
 }
 
-    .nav_link:hover {
-        color: var(--white-color)
-    }
+.nav_named {
+    color: #1e90ff;
+}
+
+.nav_link:hover {
+    color: var(--white-color)
+}
 
 .nav_icon {
     font-size: 1.25rem
