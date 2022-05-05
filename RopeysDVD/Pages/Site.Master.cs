@@ -11,14 +11,24 @@ namespace RopeysDVD
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Cookies["userCookie"] != null)
+            {
+                login_sts.Text = "Sign out";
+            }
+            else
+            {
+                login_sts.Text = "Sign in";
+            }
         }
         protected void btnSignout_Click(object sender, EventArgs e)
         {
             if (Request.Cookies["userCookie"] != null)
             {
-                Response.Write("<script>alert('cookie removed. user logged out')</script>");
                 Response.Cookies["userCookie"].Expires = DateTime.Now.AddDays(-1);
+                Response.Redirect("LoginPage.aspx");
+            }
+            else
+            {
                 Response.Redirect("LoginPage.aspx");
             }
         }
