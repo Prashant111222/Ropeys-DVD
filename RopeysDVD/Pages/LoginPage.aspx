@@ -54,7 +54,7 @@
         <br />
         <!-- Submit button -->
         <div class="col d-flex justify-content-center">
-            <asp:Button ID="Signin_Button" CssClass="btn btn-primary" Width="600px" runat="server" Text="Sign in" OnClick="Signin_Button_Click1" />
+            <asp:Button ID="Signin_Button" CssClass="btn btn-primary col-md-4" runat="server" Text="Sign in" OnClick="Signin_Button_Click1" />
         </div>
         <br />
         <div class="text-center">
