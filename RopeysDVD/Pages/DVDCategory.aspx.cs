@@ -146,9 +146,12 @@ namespace RopeysDVD
             da.Fill(ds, "DVDCategory");
             DataTable dt = ds.Tables[0];
 
-            dvdCategoryNumber.Text = dt.Rows[0]["CategoryNumber"].ToString();
-            categoryDescription.Text = dt.Rows[0]["CategoryDescription"].ToString();
-            ageRestriction.SelectedValue = dt.Rows[0]["AgeRestricted"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                dvdCategoryNumber.Text = dt.Rows[0]["CategoryNumber"].ToString();
+                categoryDescription.Text = dt.Rows[0]["CategoryDescription"].ToString();
+                ageRestriction.SelectedValue = dt.Rows[0]["AgeRestricted"].ToString();
+            }            
         }
     }
 }
