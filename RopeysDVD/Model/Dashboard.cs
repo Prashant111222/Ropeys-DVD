@@ -53,7 +53,7 @@ namespace RopeysDVD
         public DataTable GetMovieDetails()
         {
             //movie details along with the details of the Cast Members in alphabetical order
-            string sql = "SELECT Producer.ProducerName, Studio.StudioName,Actor.ActorFirstName, DVDTitle.DVDTitle, DVDTitle.DateReleased, Actor.ActorSurname FROM Producer JOIN DVDTitle ON Producer.ProducerNumber = DVDTitle.ProducerNumber JOIN Studio On DVDTitle.StudioNumber = Studio.StudioNumber JOIN CastMember ON DVDTitle.DVDNumber = CastMember.DVDNumber JOIN Actor ON CastMember.ActorNumber = Actor.ActorNumber ORDER BY DVDTitle.DateReleased, Actor.ActorSurname";
+            string sql = "SELECT Producer.ProducerName, Studio.StudioName, DVDTitle.DVDTitle, DVDTitle.DateReleased, Actor.ActorSurname, Actor.ActorFirstName FROM Producer JOIN DVDTitle ON Producer.ProducerNumber = DVDTitle.ProducerNumber JOIN Studio On DVDTitle.StudioNumber = Studio.StudioNumber JOIN CastMember ON DVDTitle.DVDNumber = CastMember.DVDNumber JOIN Actor ON CastMember.ActorNumber = Actor.ActorNumber ORDER BY DVDTitle.DateReleased, Actor.ActorSurname";
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, gc.cn);
 
