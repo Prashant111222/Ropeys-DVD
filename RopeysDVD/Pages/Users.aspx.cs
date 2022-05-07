@@ -103,10 +103,13 @@ namespace RopeysDVD.Pages
             da.Fill(ds, "User");
             DataTable dt = ds.Tables[0];
 
-            userNumber.Text = dt.Rows[0]["UserNumber"].ToString();
-            userPassword.Text = dt.Rows[0]["UserPassword"].ToString();
-            userType.SelectedValue = dt.Rows[0]["UserType"].ToString();
-            userName.Text = dt.Rows[0]["UserName"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                userNumber.Text = dt.Rows[0]["UserNumber"].ToString();
+                userPassword.Text = dt.Rows[0]["UserPassword"].ToString();
+                userType.SelectedValue = dt.Rows[0]["UserType"].ToString();
+                userName.Text = dt.Rows[0]["UserName"].ToString();
+            }           
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

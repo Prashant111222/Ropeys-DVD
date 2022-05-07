@@ -117,12 +117,15 @@ namespace RopeysDVD
             da.Fill(ds, "Member");
             DataTable dt = ds.Tables[0];
 
-            memberNumber.Text = dt.Rows[0]["MemberNumber"].ToString();
-            membershipCategory.SelectedValue = dt.Rows[0]["MembershipCategoryNumber"].ToString();
-            lastName.Text = dt.Rows[0]["MemberLastName"].ToString();
-            firstName.Text = dt.Rows[0]["MemberFirstName"].ToString();
-            address.Text = dt.Rows[0]["MemberAddress"].ToString();
-            datePicker.Text = dt.Rows[0]["MemberDateOfBirth"].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                memberNumber.Text = dt.Rows[0]["MemberNumber"].ToString();
+                membershipCategory.SelectedValue = dt.Rows[0]["MembershipCategoryNumber"].ToString();
+                lastName.Text = dt.Rows[0]["MemberLastName"].ToString();
+                firstName.Text = dt.Rows[0]["MemberFirstName"].ToString();
+                address.Text = dt.Rows[0]["MemberAddress"].ToString();
+                datePicker.Text = dt.Rows[0]["MemberDateOfBirth"].ToString();
+            }
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

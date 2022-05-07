@@ -99,9 +99,12 @@ namespace RopeysDVD
             da.Fill(ds, "Actor");
             DataTable dt = ds.Tables[0];
 
-            actorNumber.Text = dt.Rows[0]["ActorNumber"].ToString();
-            actorSurname.Text = dt.Rows[0]["ActorSurname"].ToString();
-            actorFirstName.Text = dt.Rows[0]["ActorFirstName"].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                actorNumber.Text = dt.Rows[0]["ActorNumber"].ToString();
+                actorSurname.Text = dt.Rows[0]["ActorSurname"].ToString();
+                actorFirstName.Text = dt.Rows[0]["ActorFirstName"].ToString();
+            }                
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

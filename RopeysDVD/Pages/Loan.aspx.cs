@@ -167,10 +167,13 @@ namespace RopeysDVD
             da.Fill(ds, "Loan");
             DataTable dt = ds.Tables[0];
 
-            loanNumber.Text = dt.Rows[0]["LoanNumber"].ToString();
-            loanType.SelectedValue = dt.Rows[0]["LoanTypeNumber"].ToString();
-            copyNumber.SelectedValue = dt.Rows[0]["CopyNumber"].ToString();
-            member.SelectedValue = dt.Rows[0]["MemberNumber"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                loanNumber.Text = dt.Rows[0]["LoanNumber"].ToString();
+                loanType.SelectedValue = dt.Rows[0]["LoanTypeNumber"].ToString();
+                copyNumber.SelectedValue = dt.Rows[0]["CopyNumber"].ToString();
+                member.SelectedValue = dt.Rows[0]["MemberNumber"].ToString();
+            }
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

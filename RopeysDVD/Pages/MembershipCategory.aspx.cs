@@ -99,9 +99,12 @@ namespace RopeysDVD
             da.Fill(ds, "MembershipCategory");
             DataTable dt = ds.Tables[0];
 
-            categoryNumber.Text = dt.Rows[0]["MembershipCategoryNumber"].ToString();
-            categoryDescription.Text = dt.Rows[0]["MembershipCategoryDescription"].ToString();
-            totalLoans.Text = dt.Rows[0]["MembershipCategoryTotalLoans"].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                categoryNumber.Text = dt.Rows[0]["MembershipCategoryNumber"].ToString();
+                categoryDescription.Text = dt.Rows[0]["MembershipCategoryDescription"].ToString();
+                totalLoans.Text = dt.Rows[0]["MembershipCategoryTotalLoans"].ToString();
+            }            
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

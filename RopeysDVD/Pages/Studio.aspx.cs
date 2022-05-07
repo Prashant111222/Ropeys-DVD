@@ -144,8 +144,11 @@ namespace RopeysDVD
             da.Fill(ds, "Studio");
             DataTable dt = ds.Tables[0];
 
-            studioNumber.Text = dt.Rows[0]["StudioNumber"].ToString();
-            studioName.Text = dt.Rows[0]["StudioName"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                studioName.Text = dt.Rows[0]["StudioName"].ToString();
+                studioNumber.Text = dt.Rows[0]["StudioNumber"].ToString();
+            }    
         }
     }
 }

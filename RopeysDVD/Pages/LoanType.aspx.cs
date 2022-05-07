@@ -99,9 +99,12 @@ namespace RopeysDVD
             da.Fill(ds, "LoanType");
             DataTable dt = ds.Tables[0];
 
-            loanTypeNumber.Text = dt.Rows[0]["LoanTypeNumber"].ToString();
-            loanType.Text = dt.Rows[0]["LoanType"].ToString();
-            loanDuration.Text = dt.Rows[0]["LoanDuration"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                loanTypeNumber.Text = dt.Rows[0]["LoanTypeNumber"].ToString();
+                loanType.Text = dt.Rows[0]["LoanType"].ToString();
+                loanDuration.Text = dt.Rows[0]["LoanDuration"].ToString();
+            }            
         }
 
         protected void Button_Delete_Click(object sender, EventArgs e)

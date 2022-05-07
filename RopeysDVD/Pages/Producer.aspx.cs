@@ -146,8 +146,11 @@ namespace RopeysDVD
             da.Fill(ds, "Producer");
             DataTable dt = ds.Tables[0];
 
-            producerNumber.Text = dt.Rows[0]["ProducerNumber"].ToString();
-            producerName.Text = dt.Rows[0]["ProducerName"].ToString();
+            if(dt.Rows.Count > 0)
+            {
+                producerNumber.Text = dt.Rows[0]["ProducerNumber"].ToString();
+                producerName.Text = dt.Rows[0]["ProducerName"].ToString();
+            }            
         }
     }
 }
